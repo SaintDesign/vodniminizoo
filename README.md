@@ -1,47 +1,82 @@
-# vodní miniZOO Baška — redesign
+# vodní miniZOO Baška — Next.js 16
 
-Statický web pro [vodní miniZOO Baška](https://www.vodniminizoo.cz) — vzdělávací zařízení zaměřené na vodu, vodní ekosystémy a ochranu přírody.
+Statický Next.js web pro [vodní miniZOO Baška](https://www.vodniminizoo.cz). Plně server-rendered (Static Site Generation), 100% indexovatelný Google.
 
 ## Stack
 
-- Vanilla HTML / CSS / JS (žádný framework, žádný build step)
-- Google Fonts: Fraunces (display) + Inter (body)
-- Hostovatelné kdekoli: Netlify, Cloudflare Pages, Vercel, Apache, Nginx
+- **Next.js 16** (App Router, React 19, Server Components)
+- **TypeScript strict**
+- **next/font** (Fraunces + Inter, self-hosted)
+- **next/image** (AVIF/WebP, automatický srcset)
+- **Vanilla CSS** s design tokens (žádný Tailwind)
+- Hostováno na **Vercelu** (edge cache, image optimization)
 
 ## Struktura
 
 ```
-/                                      Homepage s asymetrickým hero kolážem
-/o-nas/                                O nás
-/vzdelavaci-programy/                  Vzdělávací programy
-/program-svet-vody/                    Program Svět vody
-/vyukovy-program-voda-v-pohybu/        Voda v pohybu — ceník
-/fotogalerie/                          Fotogalerie
-/navstivilinas/                        Navštívili nás
-/souteze/                              Soutěž
-/podpora/                              Možnosti podpory
-/dary/                                 Dary — bankovní účet
-/sponzoring/                           Sponzoring
-/kontakt/                              Kontakt + mapa
-/projekty-a-vyzvy/                     Aktuální projekty
-/navstevni-rad/                        Návštěvní řád
-/pravidla-ochrany-soukromi/            GDPR
-/licence-a-povinne-informace/          Právní info
-/sitemap.xml /robots.txt
+app/                              ← App Router (každá složka = URL)
+  layout.tsx                      ← root, fonty, metadata, JSON-LD
+  page.tsx                        ← homepage
+  globals.css                     ← design system
+  o-nas/page.tsx
+  vzdelavaci-programy/page.tsx
+  program-svet-vody/page.tsx
+  vyukovy-program-voda-v-pohybu/page.tsx
+  fotogalerie/page.tsx
+  navstivilinas/page.tsx
+  souteze/page.tsx
+  podpora/  dary/  sponzoring/
+  kontakt/
+  projekty-a-vyzvy/
+  navstevni-rad/
+  pravidla-ochrany-soukromi/
+  licence-a-povinne-informace/
+  sitemap.ts                      ← dynamický sitemap.xml
+  robots.ts                       ← dynamický robots.txt
+
+components/                       ← sdílené komponenty
+  SiteHeader.tsx                  ← nav s mobile menu (client)
+  SiteFooter.tsx                  ← server
+  Hero.tsx                        ← homepage hero
+  PageHero.tsx                    ← sub-page hero + breadcrumbs
+  CTABanner.tsx
+  RevealEffects.tsx               ← IntersectionObserver pro reveal
+  icons.tsx                       ← inline SVG ikony
+
+lib/
+  site.ts                         ← brand & contact constants
+  navigation.ts                   ← nav, footer links, all routes
+
+public/assets/images/              ← logo a fotky
 ```
 
-## Vývoj
-
-Není potřeba žádný build. Stačí libovolný static server:
+## Lokální vývoj
 
 ```bash
-python3 -m http.server 8000
-# nebo
-npx serve .
+npm install
+npm run dev          # http://localhost:3000
+npm run build        # production build
+npm run typecheck    # TypeScript check
 ```
 
-## Deploy
+## SEO
 
-Stačí nahrát kořen repa na hosting. Pro Netlify / Cloudflare Pages:
-- Build command: *(žádný)*
-- Publish directory: `.`
+- Static prerendering — Google dostane plný HTML hned (žádná hydration)
+- Metadata API — unique `<title>` + description + OG na každé stránce
+- `app/sitemap.ts` → `/sitemap.xml`
+- `app/robots.ts` → `/robots.txt`
+- JSON-LD `Zoo` schema v root layoutu
+- Canonical URLs na každé stránce
+
+## Deploy na Vercel
+
+1. Vercel detekuje Next.js automaticky (Application Preset = Next.js)
+2. Build command: `next build` (default)
+3. Output directory: `.next` (default)
+4. Doménu připojit v Vercel Dashboardu
+
+## URL struktura (zachována z původního webu)
+
+`/`, `/o-nas`, `/vzdelavaci-programy`, `/program-svet-vody`, `/vyukovy-program-voda-v-pohybu`, `/fotogalerie`, `/navstivilinas`, `/souteze`, `/podpora`, `/dary`, `/sponzoring`, `/kontakt`, `/projekty-a-vyzvy`, `/navstevni-rad`, `/pravidla-ochrany-soukromi`, `/licence-a-povinne-informace`
+
+Bývalé URL končily lomítkem (`/o-nas/`). Next.js trailing slash handling — pokud chceš zachovat staré tvary, lze nastavit `trailingSlash: true` v `next.config.mjs`.
