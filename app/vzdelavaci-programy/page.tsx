@@ -16,8 +16,12 @@ export default function VzdelavaciProgramyPage() {
           <h1>Vzdělávací programy</h1>
         </header>
 
-        <div className="btn-row" data-reveal style={{ marginBottom: '2rem' }}>
+        <div className="btn-row" data-reveal style={{ marginBottom: '2.5rem' }}>
           <Link className="btn-rose" href="/navstevni-rad">Informace k návštěvě</Link>
+        </div>
+
+        <div className="btn-row" data-reveal style={{ marginBottom: '2rem' }}>
+          <Link className="btn-rose" href="#metodika">Metodika výukového programu</Link>
         </div>
 
         <div className="prose">
@@ -26,11 +30,7 @@ export default function VzdelavaciProgramyPage() {
             <img src={programyImages.group} alt="Skupina při programu" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
           </figure>
 
-          <div className="btn-row" data-reveal>
-            <Link className="btn-rose" href="#metodika">Metodika výukového programu</Link>
-          </div>
-
-          <p id="metodika" style={{ marginTop: '2rem' }}>
+          <p id="metodika">
             Voda je základem života — pro přírodu, ekosystémy i člověka. V připravovaných vzdělávacích programech se zaměřujeme na ochranu vody v přírodě, význam čištění vody, její roli pro rostliny, živočichy i krajinu a na téma zadržování vody v krajině.
           </p>
 
@@ -54,28 +54,32 @@ export default function VzdelavaciProgramyPage() {
           <p style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--color-rose)', marginTop: '2rem' }}>
             Poznejte vodu v souvislostech — s respektem, pochopením a zážitkem.
           </p>
+        </div>
 
-          <h2 data-reveal>Voda v pohybu</h2>
-          <p style={{ textAlign: 'center' }}>
-            <Link className="btn-rose" href="/program-svet-vody">Detail programu</Link>
-            {' '}
-            <Link className="btn-rose" href="/vyukovy-program-voda-v-pohybu" style={{ background: 'transparent', color: 'var(--color-rose)', boxShadow: 'inset 0 0 0 1px var(--color-rose)' }}>Ceník &amp; rezervace</Link>
-          </p>
+        {/* 3-sloupcový layout dole: Voda v pohybu | Rybniční ekosystém | Arapaima gigas */}
+        <div className="cards-3" data-reveal style={{ marginTop: '4rem' }}>
+          <div className="cards-3__item">
+            <h3><Link href="/program-svet-vody">Voda v pohybu</Link></h3>
+            <p style={{ textAlign: 'center' }}>
+              Vnitřní i venkovní okruh — komentovaná prohlídka, setkání se zvířaty a praktický výklad o vodě v krajině.
+            </p>
+          </div>
+          <div className="cards-3__item">
+            <h3>Rybniční ekosystém</h3>
+            <p>
+              Tento vzdělávací program je v současné době ve fázi aktualizace a přípravy pro webové zobrazení. Jeho obsah bude zveřejněn v nejbližší době. Děkujeme za pochopení.
+            </p>
+          </div>
+          <div className="cards-3__item">
+            <h3>Arapaima gigas</h3>
+            <p>
+              Tento vzdělávací program je v současné době ve fázi aktualizace a přípravy pro webové zobrazení. Jeho obsah bude zveřejněn v nejbližší době. Děkujeme za pochopení.
+            </p>
+          </div>
+        </div>
 
-          <h2 data-reveal>Rybniční ekosystém</h2>
-          <p>
-            Tento vzdělávací program je v současné době ve fázi aktualizace a přípravy pro webové zobrazení. Jeho obsah bude zveřejněn v nejbližší době. Děkujeme za pochopení.
-          </p>
-
-          <h2 data-reveal>Arapaima gigas</h2>
-          <p>
-            Tento vzdělávací program je v současné době ve fázi aktualizace a přípravy pro webové zobrazení. Jeho obsah bude zveřejněn v nejbližší době. Děkujeme za pochopení.
-          </p>
-
-          <hr />
-          <p className="center">
-            <Link href="/navstevni-rad">Návštěvní řád</Link>
-          </p>
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <Link className="btn-rose" href="/navstevni-rad">Návštěvní řád</Link>
         </div>
       </div>
     </section>

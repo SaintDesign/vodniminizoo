@@ -524,6 +524,100 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 
 .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
 
+/* ============ 3-cards (Podpora, Vzdělávací programy bottom) ============ */
+.cards-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+@media (min-width: 760px) {
+  .cards-3 { grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; }
+}
+.cards-3__item { text-align: center; }
+.cards-3__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.cards-3__item h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-rose);
+}
+.cards-3__item h3 a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--color-rose);
+}
+.cards-3__item p {
+  margin-top: .75rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* ============ 2-column layout (Dary, O nás intro) ============ */
+.cols-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+@media (min-width: 760px) {
+  .cols-2 { grid-template-columns: 1fr 1fr; gap: 4rem; }
+}
+.cols-2__col { color: var(--color-text); line-height: 1.7; }
+.cols-2__col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.cols-2__col h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-rose);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.cols-2__col h4 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-title);
+  margin-top: 1.25rem;
+  margin-bottom: .5rem;
+}
+.cols-2__col p { color: var(--color-text); }
+.cols-2__col p + p { margin-top: .75rem; }
+.cols-2__col ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+.cols-2__col li {
+  padding: .25rem 0;
+  color: var(--color-text);
+  position: relative;
+  padding-left: 1.2rem;
+}
+.cols-2__col li::before {
+  content: ">";
+  color: var(--color-rose);
+  position: absolute;
+  left: 0;
+  top: .25rem;
+}
+.cols-2__col strong { color: var(--color-ink); }
+.cols-2__col a { color: var(--color-rose); }
+
 /* ============ Cenik dvousloupkový ============ */
 .cenik-cols {
   display: grid;

@@ -17,54 +17,44 @@ export default function PodporaPage() {
           <h1>Podpora</h1>
         </header>
 
-        <div className="prose">
+        <div className="prose" data-reveal style={{ marginBottom: '3rem' }}>
           <p>
             Vodní miniZOO by bez laskavé pomoci lidí jako jste vy nemohla dělat to, co dělá. Každý příspěvek — malý i velký — pomáhá zlepšovat podmínky pro naše zvířecí svěřence, rozšiřovat chovatelské zázemí a pořádat programy, které přibližují přírodu dětem i dospělým.
           </p>
 
-          <figure style={{ margin: '2rem 0' }} data-reveal>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={podporaImages[0]} alt="Podpora areálu" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
-          </figure>
-
           <p>Možností, jak nás podpořit, je hned několik:</p>
           <ul>
-            <li>
-              <strong>Adopcí</strong> se stanete symbolickým rodičem některého ze zvířat a pomůžete mu přímo.
-            </li>
-            <li>
-              <strong>Darem</strong>, finančním či materiálním, přispějete tam, kde je právě potřeba nejvíc.
-            </li>
-            <li>
-              <strong>Sponzoringem</strong> jako jednotlivec nebo firma pomůžete dlouhodobě — a my vaši podporu s radostí veřejně poděkujeme.
-            </li>
-            <li>
-              <strong>Dobrovolnictvím</strong> můžete přiložit ruku k dílu osobně — pomoci s péčí o zvířata, údržbou areálu, vzdělávacími programy či pořádáním akcí. Každá hodina vašeho času má pro nás velkou hodnotu.
-            </li>
+            <li><strong>Adopcí</strong> se stanete symbolickým rodičem některého ze zvířat a pomůžete mu přímo.</li>
+            <li><strong>Darem</strong>, finančním či materiálním, přispějete tam, kde je právě potřeba nejvíc.</li>
+            <li><strong>Sponzoringem</strong> jako jednotlivec nebo firma pomůžete dlouhodobě — a my vaši podporu s radostí veřejně poděkujeme.</li>
+            <li><strong>Dobrovolnictvím</strong> můžete přiložit ruku k dílu osobně — pomoci s péčí o zvířata, údržbou areálu, vzdělávacími programy či pořádáním akcí. Každá hodina vašeho času má pro nás velkou hodnotu.</li>
           </ul>
 
-          <figure style={{ margin: '2rem 0' }} data-reveal>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={podporaImages[1]} alt="Areál" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
-          </figure>
-
-          <p style={{ fontStyle: 'italic', color: 'var(--color-rose)', textAlign: 'center', marginTop: '2rem' }}>
+          <p style={{ textAlign: 'center', marginTop: '1.5rem' }}>
             Každá pomoc se počítá. A každá nese kus dobré vůle, která nás posouvá dál.
           </p>
+        </div>
 
-          <div className="btn-row" style={{ marginTop: '2rem' }}>
-            <Link className="btn-rose" href="/kontakt">Adopce</Link>
-            <Link className="btn-rose" href="/dary">Dary</Link>
-            <Link className="btn-rose" href="/sponzoring">Sponzoring</Link>
-          </div>
-
-          <figure style={{ margin: '2rem 0' }} data-reveal>
+        <div className="cards-3" data-reveal>
+          <div className="cards-3__item">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={podporaImages[2]} alt="Detail areálu" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
-          </figure>
+            <img src={podporaImages[0]} alt="Adopce" />
+            <h3><Link href="/kontakt">Adopce</Link></h3>
+          </div>
+          <div className="cards-3__item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={podporaImages[1]} alt="Dary" />
+            <h3><Link href="/dary">Dary</Link></h3>
+          </div>
+          <div className="cards-3__item">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={podporaImages[2]} alt="Sponzoring" />
+            <h3><Link href="/sponzoring">Sponzoring</Link></h3>
+          </div>
+        </div>
 
+        <div className="prose" style={{ marginTop: '4rem' }}>
           <hr />
-
           <h2>Provozovatel</h2>
           <p style={{ textAlign: 'center' }}>
             {siteConfig.legal.company}
