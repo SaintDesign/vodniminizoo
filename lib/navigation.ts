@@ -16,7 +16,6 @@ export const mainNav: NavItem[] = [
     label: 'Podpora',
     href: '/podpora',
     children: [
-      { label: 'Možnosti podpory', href: '/podpora' },
       { label: 'Dary', href: '/dary' },
       { label: 'Sponzoring', href: '/sponzoring' },
     ],
@@ -26,10 +25,10 @@ export const mainNav: NavItem[] = [
     label: 'Více',
     href: '/projekty-a-vyzvy',
     children: [
-      { label: 'Projekty a výzvy', href: '/projekty-a-vyzvy' },
-      { label: 'Návštěvní řád', href: '/navstevni-rad' },
       { label: 'Pravidla ochrany soukromí', href: '/pravidla-ochrany-soukromi' },
       { label: 'Licence a povinné informace', href: '/licence-a-povinne-informace' },
+      { label: 'Návštěvní řád', href: '/navstevni-rad' },
+      { label: 'Projekty a výzvy', href: '/projekty-a-vyzvy' },
     ],
   },
 ];
