@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { mainNav } from '@/lib/navigation';
 import { siteConfig } from '@/lib/site';
-import { ArrowRight, CloseIcon, MenuIcon } from './icons';
 
 function isActive(pathname: string, href: string): boolean {
   if (href === '/') return pathname === '/';
@@ -15,59 +14,46 @@ function isActive(pathname: string, href: string): boolean {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.documentElement.style.overflow = '';
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false);
-    };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, []);
+  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
-    <>
-      <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
-        <div className="container nav">
-          <Link href="/" className="nav__logo" aria-label={`${siteConfig.name} — domovská stránka`}>
-            <Image src="/assets/images/logo.png" alt="" width={56} height={40} priority />
-            <span className="nav__logo-text">
-              {siteConfig.shortName}
-              <em>vodní svět</em>
-            </span>
-          </Link>
+    <header className="site-header">
+      <div className="container">
+        <Link href="/" className="site-header__logo" aria-label={`${siteConfig.name} — domovská stránka`}>
+          <Image src="/assets/images/logo.png" alt="" width={220} height={150} priority />
+        </Link>
 
-          <ul className="nav__menu">
+        <h1 className="site-header__title">{siteConfig.name}</h1>
+        <p className="site-header__subtitle">{siteConfig.subtitle}</p>
+
+        <nav className="site-nav" aria-label="Hlavní navigace">
+          <button
+            type="button"
+            className="site-nav__toggle"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="site-nav-list"
+            aria-label={open ? 'Zavřít menu' : 'Otevřít menu'}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+          <ul id="site-nav-list" className={`site-nav__list${open ? ' is-open' : ''}`}>
             {mainNav.map((item) => (
-              <li key={item.href} className={item.children ? 'nav__has-sub' : undefined}>
+              <li key={item.href} className={item.children ? 'site-nav__has-sub' : undefined}>
                 <Link href={item.href} aria-current={isActive(pathname, item.href) ? 'page' : undefined}>
                   {item.label}
-                  {item.children ? ' ▾' : ''}
                 </Link>
                 {item.children && (
-                  <ul className="nav__sub">
+                  <ul className="site-nav__sub">
                     {item.children.map((sub) => (
                       <li key={sub.href}>
-                        <Link href={sub.href}>{sub.label}</Link>
+                        <Link href={sub.href} aria-current={pathname === sub.href ? 'page' : undefined}>
+                          {sub.label}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -75,56 +61,8 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-
-          <div className="nav__cta">
-            <Link className="btn btn--moss" href="/kontakt">
-              Rezervovat program
-              <ArrowRight className="arrow" />
-            </Link>
-          </div>
-
-          <button
-            type="button"
-            className="nav__toggle"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Otevřít menu"
-            aria-controls="mobile-menu"
-            aria-expanded={menuOpen}
-          >
-            <MenuIcon />
-          </button>
-        </div>
-      </header>
-
-      <aside className={`mobile-menu${menuOpen ? ' is-open' : ''}`} id="mobile-menu" aria-hidden={!menuOpen}>
-        <div className="mobile-menu__head">
-          <Link href="/" className="nav__logo" onClick={() => setMenuOpen(false)}>
-            <Image src="/assets/images/logo.png" alt="" width={44} height={32} />
-            <span className="nav__logo-text" style={{ color: 'var(--cream)' }}>
-              {siteConfig.shortName}
-              <em style={{ color: 'var(--aqua)' }}>vodní svět</em>
-            </span>
-          </Link>
-          <button type="button" className="mobile-menu__close" onClick={() => setMenuOpen(false)} aria-label="Zavřít menu">
-            <CloseIcon />
-          </button>
-        </div>
-        <nav>
-          <Link href="/o-nas">O nás</Link>
-          <Link href="/vzdelavaci-programy">Vzdělávací programy</Link>
-          <Link href="/program-svet-vody">Svět vody</Link>
-          <Link href="/vyukovy-program-voda-v-pohybu">Ceník</Link>
-          <Link href="/fotogalerie">Fotogalerie</Link>
-          <Link href="/projekty-a-vyzvy">Projekty</Link>
-          <Link href="/podpora">Podpora</Link>
-          <Link href="/kontakt">Kontakt</Link>
         </nav>
-        <div className="mobile-menu__footer">
-          <span>{siteConfig.contact.address}</span>
-          <span>{siteConfig.contact.phone}</span>
-          <span>{siteConfig.contact.email}</span>
-        </div>
-      </aside>
-    </>
+      </div>
+    </header>
   );
 }

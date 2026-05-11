@@ -1,215 +1,115 @@
 import type { Metadata } from 'next';
-import { CTABanner } from '@/components/CTABanner';
-import { PageHero } from '@/components/PageHero';
-import { CalendarIcon, ClockIcon, GroupIcon } from '@/components/icons';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Voda v pohybu — ceník a rezervace',
-  description:
-    'Program Voda v pohybu — délka 60 minut, kapacita 80 osob. Děti 120 Kč, dospělí 150 Kč, senioři 65+ a ZTP/ZTP+P 120 Kč, pedagogický doprovod zdarma. Pondělí–pátek dopoledne.',
+  title: 'Ceník',
+  description: 'Ceník vstupů na program Svět vody (40 minut, So-Ne) a vzdělávací program Voda v pohybu pro skupiny a školy (60 minut, Po-Pá dopoledne).',
   alternates: { canonical: '/vyukovy-program-voda-v-pohybu' },
 };
 
 export default function CenikPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Ceník & rezervace"
-        title={
-          <>
-            Voda v <em>pohybu</em> — 60 minut
+    <section className="section section--paper">
+      <div className="container">
+        <header className="page-heading" data-reveal>
+          <h1>Ceník</h1>
+        </header>
+
+        <div className="prose">
+          <h2 data-reveal>Veřejnost</h2>
+          <h3 style={{ textAlign: 'center', color: 'var(--color-rose)' }}>Program Svět vody</h3>
+          <p>
+            <strong>Sobota:</strong> v 15:00, 16:00 a 17:00.<br />
+            <strong>Neděle:</strong> v 15:00, 16:00 a 17:00.
+          </p>
+          <p>Restaurace otevřena od 14:00.</p>
+
+          <h4 style={{ textAlign: 'center' }}>Ceník programu Svět vody — 40 minut</h4>
+          <table style={{ width: '100%', borderCollapse: 'collapse', margin: '1rem 0', maxWidth: '500px', marginInline: 'auto' }}>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid var(--color-line)' }}>
+                <td style={{ padding: '.6rem 1rem' }}>Dospělý</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>120 Kč</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid var(--color-line)' }}>
+                <td style={{ padding: '.6rem 1rem' }}>Děti od 1 roku — 15 let</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>95 Kč</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '.6rem 1rem' }}>Senioři 65+ a ZTP/ZTP+P</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>95 Kč</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Platbu je možné provést v hotovosti, nebo pohodlně pomocí QR kódu.</p>
+
+          <h3>Vstup pouze s průvodcem</h3>
+          <ul>
+            <li>Kapacita prohlídek je omezena, doporučujeme předchozí telefonickou rezervaci.</li>
+            <li>V případě naplnění kapacity mají přednost rezervace.</li>
+            <li>Zvolte prosím vhodné oblečení a obuv.</li>
+            <li>Účastí na prohlídce návštěvníci souhlasí s návštěvním řádem zařízení.</li>
+            <li>Z provozních nebo bezpečnostních důvodů může dojít ke změně termínu prohlídky.</li>
+            <li>Vhodné pro dospělé, děti již od 2 měsíců, pro zdravotně znevýhodněné (není bezbariérové).</li>
+          </ul>
+
+          <h3>Rezervace a dotazy</h3>
+          <p>
+            ✉ <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a>
             <br />
-            hlubokého ponoru.
-          </>
-        }
-        description="Strukturovaný vzdělávací program zaměřený na ekologii a ochranu přírody, životní prostředí, vodní ekosystémy a biologii vybraných druhů. Přístupné dětem od MŠ po dospělé."
-        breadcrumbs={[
-          { label: 'Domů', href: '/' },
-          { label: 'Programy', href: '/vzdelavaci-programy' },
-          { label: 'Voda v pohybu — ceník' },
-        ]}
-      />
+            ✆ <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>
+          </p>
+          <p style={{ fontSize: '.85rem', color: 'var(--color-text)', textAlign: 'right' }}>VP/PR/12026</p>
 
-      <section className="section section--tight">
-        <div className="container">
-          <div className="info-bar" data-reveal>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Délka</span>
-              <span className="info-bar__value">60 minut</span>
-            </div>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Termín</span>
-              <span className="info-bar__value">Po — Pá dopoledne</span>
-            </div>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Kapacita</span>
-              <span className="info-bar__value">až 80 osob</span>
-            </div>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Vstupné od</span>
-              <span className="info-bar__value">120 Kč / dítě</span>
-            </div>
-          </div>
+          <hr />
+
+          <h2 data-reveal>Organizace, skupiny a školy</h2>
+          <h3 style={{ textAlign: 'center', color: 'var(--color-rose)' }}>Program Voda v pohybu</h3>
+          <p>
+            <strong>Pondělí — Pátek:</strong> v dopoledních hodinách, po předchozí závazné rezervaci.
+          </p>
+
+          <h4 style={{ textAlign: 'center' }}>Ceník program Voda v pohybu — 60 minut</h4>
+          <table style={{ width: '100%', borderCollapse: 'collapse', margin: '1rem 0', maxWidth: '500px', marginInline: 'auto' }}>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid var(--color-line)' }}>
+                <td style={{ padding: '.6rem 1rem' }}>Dítě</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>120 Kč</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid var(--color-line)' }}>
+                <td style={{ padding: '.6rem 1rem' }}>Dospělý</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>150 Kč</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid var(--color-line)' }}>
+                <td style={{ padding: '.6rem 1rem' }}>Senioři 65+ a ZTP/ZTP+P</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>120 Kč</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '.6rem 1rem' }}>Pedagogický doprovod (k 10 dětem)</td>
+                <td style={{ padding: '.6rem 1rem', textAlign: 'right', color: 'var(--color-rose)', fontWeight: 600 }}>zdarma</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Platbu je možné provést v hotovosti, na fakturu s úhradou předem, nebo pohodlně pomocí QR kódu.</p>
+
+          <p>Pro školy, školky a organizované skupiny nabízíme strukturované vzdělávací programy zaměřené na:</p>
+          <ul>
+            <li>ekologii a ochranu přírody,</li>
+            <li>životní prostředí a vodní ekosystémy,</li>
+            <li>chov a biologii vybraných druhů.</li>
+          </ul>
+          <p>Tyto programy jsou poskytovány jako samostatná vzdělávací služba a jsou zpoplatněny dle rozsahu a náročnosti.</p>
+          <p>Programy realizujeme převážně v týdnu v dopoledních hodinách po předchozí telefonické závazné rezervaci.</p>
+          <p>Maximální počet na jeden program je 80 účastníků.</p>
+
+          <h3>Verze s občerstvením / bez občerstvení</h3>
+          <p>
+            Pro verzi bez občerstvení účtujeme 200 Kč na úklid areálu a ekologickou likvidaci odpadu. Prohlídky s občerstvením tuto službu mají zdarma.
+          </p>
         </div>
-      </section>
-
-      <section className="section section--paper">
-        <div className="container">
-          <div className="prose" data-reveal style={{ maxWidth: 'none' }}>
-            <span className="eyebrow">Praktické informace</span>
-            <h2>Co potřebujete vědět <em>před rezervací.</em></h2>
-
-            <ul className="facts" style={{ margin: '1.5rem 0', maxWidth: 'none' }}>
-              <li>
-                <ClockIcon />
-                <div>
-                  <strong>60 minut</strong>
-                  <span>Délka programu</span>
-                </div>
-              </li>
-              <li>
-                <CalendarIcon />
-                <div>
-                  <strong>Po — Pá dopoledne</strong>
-                  <span>Po závazné rezervaci</span>
-                </div>
-              </li>
-              <li>
-                <GroupIcon />
-                <div>
-                  <strong>Až 80 účastníků</strong>
-                  <span>Maximální kapacita</span>
-                </div>
-              </li>
-            </ul>
-
-            <h3>Ceník vstupů</h3>
-            <table className="price-table">
-              <tbody>
-                <tr>
-                  <th>Dítě</th>
-                  <td>120 Kč</td>
-                </tr>
-                <tr>
-                  <th>Dospělý</th>
-                  <td>150 Kč</td>
-                </tr>
-                <tr>
-                  <th>Senior 65+ a ZTP/ZTP+P</th>
-                  <td>120 Kč</td>
-                </tr>
-                <tr>
-                  <th>Pedagogický doprovod (na 10 dětí)</th>
-                  <td>zdarma</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p className="notice" style={{ marginTop: '1.5rem' }}>
-              <strong>Doplňkový poplatek:</strong> Pro variantu programu bez občerstvení účtujeme 200 Kč na údržbu a ekologickou likvidaci odpadu. Programy s občerstvením tuto službu zahrnují zdarma.
-            </p>
-
-            <h3>Co program obsahuje</h3>
-            <ul>
-              <li>Komentovanou prohlídku vnitřní expozice — akvária, terária, krokodýli, vodní želvy</li>
-              <li>Procházku venkovním okruhem a celoročně přístupnou naučnou stezkou</li>
-              <li>Setkání s vybranými druhy a možnost otázek odbornému průvodci</li>
-              <li>Sezónně: krmení kaprů, „chytání" pstruha do ruky, ukázka místní fauny rybníka</li>
-              <li>Tematický výklad o vodě v krajině, koloběhu vody a ochraně sladké vody</li>
-            </ul>
-
-            <h3>Pro koho je program</h3>
-            <ul>
-              <li>Mateřské školy (přizpůsobená délka i jazyk výkladu)</li>
-              <li>Základní školy (1. — 9. třída)</li>
-              <li>Střední školy a gymnázia (s důrazem na biologii a ekologii)</li>
-              <li>Rodiny s dětmi i dospělé skupiny</li>
-              <li>Firemní teambuildingy a komunitní organizace</li>
-            </ul>
-
-            <h3>Jak rezervovat</h3>
-            <ol>
-              <li>Vyberte si termín v dopoledních hodinách Po — Pá.</li>
-              <li>
-                Napište nám na <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a> nebo zavolejte na <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>. Uveďte počet účastníků a věkovou skupinu.
-              </li>
-              <li>Potvrdíme dostupnost a zašleme závaznou rezervaci do 2 pracovních dnů.</li>
-              <li>V den návštěvy přijeďte 10 minut před začátkem programu.</li>
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="section section--cream">
-        <div className="container">
-          <div data-reveal style={{ marginBottom: '2.5rem', textAlign: 'center', maxWidth: '60ch', marginInline: 'auto' }}>
-            <span className="eyebrow" style={{ justifyContent: 'center' }}>Časté dotazy</span>
-            <h2 className="h-display">
-              Praktické <em>otázky.</em>
-            </h2>
-          </div>
-
-          <div className="faq" data-reveal>
-            <details>
-              <summary>Můžu zrušit nebo přesunout rezervaci?</summary>
-              <div className="faq__body">
-                <p>Ano, do <strong>3 pracovních dnů před termínem</strong> zdarma. Pozdější změna nebo storno se posuzuje individuálně podle kapacity dalších termínů.</p>
-              </div>
-            </details>
-            <details>
-              <summary>Co si máme přinést?</summary>
-              <div className="faq__body">
-                <p>Pohodlné oblečení podle počasí — část programu probíhá venku. V zimě teplé oblečení, v létě pokrývku hlavy. Nic dalšího potřeba není.</p>
-              </div>
-            </details>
-            <details>
-              <summary>Můžeme přijít s vlastním jídlem?</summary>
-              <div className="faq__body">
-                <p>V expozicích vlastní jídlo a nápoje nejsou povolené. Po programu lze využít restaurace Penzionu BAŠKA VODA CZ (otevřena od 14:00) nebo si jídlo dát v okolí.</p>
-              </div>
-            </details>
-            <details>
-              <summary>Jak je to s parkováním?</summary>
-              <div className="faq__body">
-                <p>Parkování pro autobusy i osobní vozy je v obci Baška, několik minut chůze od areálu. Doporučujeme dorazit s předstihem.</p>
-              </div>
-            </details>
-            <details>
-              <summary>Vystavujete fakturu?</summary>
-              <div className="faq__body">
-                <p>Ano. Pro školy a organizace standardně fakturujeme s 14denní splatností. Při rezervaci uveďte fakturační údaje.</p>
-              </div>
-            </details>
-            <details>
-              <summary>Co když máme méně účastníků než minimum?</summary>
-              <div className="faq__body">
-                <p>Konkrétní minimum nemáme — domluvíme individuální rezervaci. Pro malé skupiny (do 10 osob) se cena chová stejně jako u větších.</p>
-              </div>
-            </details>
-            <details>
-              <summary>Je areál bezbariérový?</summary>
-              <div className="faq__body">
-                <p>Vnitřní expozice jsou přístupné pro vozíčkáře. Venkovní okruh má místa s nerovnoměrným terénem — doporučujeme zavolat dopředu, projdeme s vámi konkrétní možnosti.</p>
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <CTABanner
-        title={
-          <>
-            Připraveni si <em>rezervovat?</em>
-          </>
-        }
-        description="Stačí jeden e-mail nebo telefonát — odepíšeme do dvou pracovních dnů."
-        actions={[
-          { label: siteConfig.contact.email, href: siteConfig.contact.emailHref },
-          { label: siteConfig.contact.phone, href: siteConfig.contact.phoneHref, variant: 'ghost' },
-        ]}
-      />
-    </>
+      </div>
+    </section>
   );
 }

@@ -1,230 +1,65 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { CTABanner } from '@/components/CTABanner';
-import { PageHero } from '@/components/PageHero';
-import { ArrowRight, BookIcon, CalendarIcon, GroupIcon, HouseIcon } from '@/components/icons';
 
 export const metadata: Metadata = {
   title: 'Vzdělávací programy',
-  description:
-    'Programy zaměřené na ochranu vody, čištění vody a roli vodních ekosystémů. Voda v pohybu, Rybniční ekosystém, Arapaima gigas — pro děti, dospělé, školy i firemní skupiny.',
+  description: 'Vzdělávací programy zaměřené na ochranu vody, čištění a roli pro ekosystémy. Voda v pohybu, Rybniční ekosystém, Arapaima gigas — pro děti, dospělé, školy i skupiny.',
   alternates: { canonical: '/vzdelavaci-programy' },
 };
 
-const audiences = [
-  {
-    icon: <HouseIcon />,
-    title: 'Mateřské školy',
-    text: 'Hravá podoba programu, krátké úseky, setkání se zvířaty na úrovni očí dětí. Konkrétní zážitek, který zůstane.',
-  },
-  {
-    icon: <BookIcon />,
-    title: 'Základní školy',
-    text: 'Provazujeme s rámcovými vzdělávacími programy — voda v krajině, ekosystém, biologie konkrétních druhů.',
-  },
-  {
-    icon: <BookIcon />,
-    title: 'Střední školy',
-    text: 'Hlubší výklad, prostor pro odbornou diskuzi. Vhodné pro biologii, ekologii, environmentální výchovu i geografii.',
-  },
-  {
-    icon: <GroupIcon />,
-    title: 'Rodiny',
-    text: 'Krátká komentovaná prohlídka pro vícegenerační skupiny. Děti i prarodiče si najdou své.',
-  },
-  {
-    icon: <CalendarIcon />,
-    title: 'Firmy & skupiny',
-    text: 'Teambuilding, oborové návštěvy, exkurze pro klienty. Možnost individuální dohody nad rámec programů.',
-  },
-  {
-    icon: <GroupIcon />,
-    title: 'Komunitní organizace',
-    text: 'Volnočasové kluby, skauti, dětské domovy, seniorská sdružení — programy přizpůsobíme zájmu skupiny.',
-  },
-];
-
-export default function VzdelavaciProgramy() {
+export default function VzdelavaciProgramyPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Pro školy, skupiny i rodiny"
-        title={
-          <>
-            Programy o <em>vodě,</em>
-            <br />
-            ekosystémech a živých druzích.
-          </>
-        }
-        description="Kombinujeme komentované prohlídky s představením místních i exotických vodních živočichů. Programy jsou určené dětem i dospělým — školám, organizacím, rodinám i firemním skupinám."
-        breadcrumbs={[{ label: 'Domů', href: '/' }, { label: 'Vzdělávací programy' }]}
-      />
+    <section className="section section--paper">
+      <div className="container">
+        <header className="page-heading" data-reveal>
+          <h1>Vzdělávací programy</h1>
+        </header>
 
-      <section className="section section--tight">
-        <div className="container">
-          <div className="info-bar" data-reveal>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Délka programů</span>
-              <span className="info-bar__value">60 minut</span>
-            </div>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Kdy</span>
-              <span className="info-bar__value">Po — Pá dopoledne</span>
-            </div>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Kapacita</span>
-              <span className="info-bar__value">až 80 účastníků</span>
-            </div>
-            <div className="info-bar__cell">
-              <span className="info-bar__label">Cena od</span>
-              <span className="info-bar__value">120 Kč / dítě</span>
-            </div>
-          </div>
+        <div className="btn-row" data-reveal style={{ marginBottom: '2rem' }}>
+          <Link className="btn-rose" href="/navstevni-rad">Informace k návštěvě</Link>
         </div>
-      </section>
 
-      {/* Programy detail */}
-      <section className="section section--paper">
-        <div className="container">
-          <div data-reveal style={{ marginBottom: '3rem', maxWidth: '60ch' }}>
-            <span className="eyebrow">Aktuální nabídka</span>
-            <h2 className="h-display">
-              Tři programy, jeden <em>pevný</em> základ.
-            </h2>
-            <p className="lead" style={{ marginTop: '1rem' }}>
-              Každý program kombinuje komentovanou prohlídku s představením místních i exotických vodních živočichů. Obsah lze přizpůsobit věku a zaměření skupiny.
-            </p>
+        <div className="prose">
+          <div className="btn-row" data-reveal>
+            <Link className="btn-rose" href="#metodika">Metodika výukového programu</Link>
           </div>
 
-          <div className="cards">
-            <article className="card" data-reveal>
-              <div className="card__media">
-                <Image src="/assets/images/akvarium.jpeg" alt="Voda v pohybu" width={600} height={450} sizes="(min-width: 960px) 30vw, 100vw" />
-              </div>
-              <div className="card__body">
-                <span className="card__tag">Aktuálně v provozu · 60 min</span>
-                <h3 className="card__title">Voda v pohybu</h3>
-                <p className="card__text">
-                  Vnitřní i venkovní okruh. Komentovaná prohlídka, setkání se zvířaty a praktický výklad o vodě v krajině. Hlavní program s pevným ceníkem.
-                </p>
-                <Link className="card__link" href="/vyukovy-program-voda-v-pohybu">
-                  Ceník a rezervace <ArrowRight />
-                </Link>
-              </div>
-            </article>
+          <p id="metodika" style={{ marginTop: '2rem' }}>
+            Voda je základem života — pro přírodu, ekosystémy i člověka. V připravovaných vzdělávacích programech se zaměřujeme na ochranu vody v přírodě, význam čištění vody, její roli pro rostliny, živočichy i krajinu a na téma zadržování vody v krajině.
+          </p>
+          <p>
+            Součástí programů jsou komentované prohlídky, které propojují svět exotických vodních zvířat, plazů, želv a ryb s místním biotopem čtyř rybníků. Návštěvníci se seznámí nejen s rybami našich vod — zejména pstruhem potočním, duhovým a sivenem americkým, ale také s kaprem, amurem, karasem, jeseterem či dalšími druhy ryb. Pozornost věnujeme i dalším obyvatelům vodního prostředí, jako jsou škeble, raci, obojživelníci a vzácní ptáci, které voda přirozeně přitahuje. Zároveň představujeme exotická vodní zvířata, mezi nimi krokodýly, vodní želvy a velké sladkovodní ryby. Pýchou našeho zařízení je chov královny Amazonky — arapaimy gigas, jedné z největších sladkovodních ryb světa, která je silným symbolem významu ochrany vodních ekosystémů napříč kontinenty.
+          </p>
+          <p>
+            Programy jsou určeny dětem i dospělým, široké veřejnosti o víkendech, stejně jako školám, organizacím, skupinám a osobám s různými typy zdravotního znevýhodnění. Vše probíhá po individuální domluvě, s možností přizpůsobení obsahu, rozsahu i formy programu konkrétním potřebám účastníků.
+          </p>
+          <p style={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--color-rose)', marginTop: '2rem' }}>
+            Poznejte vodu v souvislostech — s respektem, pochopením a zážitkem.
+          </p>
 
-            <article className="card" data-reveal>
-              <div className="card__media">
-                <Image src="/assets/images/stezka.jpeg" alt="Rybniční ekosystém" width={600} height={450} sizes="(min-width: 960px) 30vw, 100vw" />
-              </div>
-              <div className="card__body">
-                <span className="card__tag">V přípravě</span>
-                <h3 className="card__title">Rybniční ekosystém</h3>
-                <p className="card__text">
-                  Hloubkový pohled na fungování rybníka, jeho obyvatele a vazby — od mikrofauny po dravé ryby. Pro starší žáky a zájemce o detail.
-                </p>
-                <span className="card__link muted">Brzy</span>
-              </div>
-            </article>
+          <h2 data-reveal>Voda v pohybu</h2>
+          <p style={{ textAlign: 'center' }}>
+            <Link className="btn-rose" href="/program-svet-vody">Detail programu</Link>
+            {' '}
+            <Link className="btn-rose" href="/vyukovy-program-voda-v-pohybu" style={{ background: 'transparent', color: 'var(--color-rose)', boxShadow: 'inset 0 0 0 1px var(--color-rose)' }}>Ceník &amp; rezervace</Link>
+          </p>
 
-            <article className="card" data-reveal>
-              <div className="card__media">
-                <Image src="/assets/images/ocelatus-1.jpeg" alt="Arapaima gigas" width={600} height={450} sizes="(min-width: 960px) 30vw, 100vw" />
-              </div>
-              <div className="card__body">
-                <span className="card__tag">V přípravě</span>
-                <h3 className="card__title">Arapaima gigas</h3>
-                <p className="card__text">
-                  Tematický program okolo jedné z největších sladkovodních ryb světa — biologie, lov, ochrana, role v amazonském ekosystému.
-                </p>
-                <span className="card__link muted">Brzy</span>
-              </div>
-            </article>
-          </div>
+          <h2 data-reveal>Rybniční ekosystém</h2>
+          <p>
+            Tento vzdělávací program je v současné době ve fázi aktualizace a přípravy pro webové zobrazení. Jeho obsah bude zveřejněn v nejbližší době. Děkujeme za pochopení.
+          </p>
+
+          <h2 data-reveal>Arapaima gigas</h2>
+          <p>
+            Tento vzdělávací program je v současné době ve fázi aktualizace a přípravy pro webové zobrazení. Jeho obsah bude zveřejněn v nejbližší době. Děkujeme za pochopení.
+          </p>
+
+          <hr />
+          <p className="center">
+            <Link href="/navstevni-rad">Návštěvní řád</Link>
+          </p>
         </div>
-      </section>
-
-      {/* Pro koho */}
-      <section className="section section--cream">
-        <div className="container">
-          <div data-reveal style={{ marginBottom: '2.5rem', maxWidth: '60ch' }}>
-            <span className="eyebrow">Pro koho</span>
-            <h2 className="h-display">
-              Programy přizpůsobujeme <em>vašemu</em> zájmu.
-            </h2>
-            <p className="lead" style={{ marginTop: '1rem' }}>
-              Cílíme na děti i dospělé. Pravidelně vítáme tyto skupiny — a obsah programu vám rádi přizpůsobíme dopředu.
-            </p>
-          </div>
-
-          <div className="audience">
-            {audiences.map((a) => (
-              <div key={a.title} className="audience__item" data-reveal>
-                {a.icon}
-                <h3>{a.title}</h3>
-                <p>{a.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Jak rezervovat — process steps */}
-      <section className="section section--paper">
-        <div className="container">
-          <div data-reveal style={{ marginBottom: '2.5rem', maxWidth: '60ch' }}>
-            <span className="eyebrow">Jak rezervovat</span>
-            <h2 className="h-display">
-              Tři kroky <em>k vaší</em> návštěvě.
-            </h2>
-          </div>
-
-          <div className="steps" data-reveal>
-            <div className="steps__item">
-              <h3>Vyberte termín</h3>
-              <p>Programy probíhají Po–Pá dopoledne v pravidelných slotech. Začínáme v celé hodiny, hosté přicházejí s mírným předstihem.</p>
-            </div>
-            <div className="steps__item">
-              <h3>Napište nebo zavolejte</h3>
-              <p>Zašlete e-mail na info@vodniminizoo.cz nebo zavolejte na +420 732 487 862. Uveďte velikost a věk skupiny.</p>
-            </div>
-            <div className="steps__item">
-              <h3>Potvrzení rezervace</h3>
-              <p>Obratem potvrdíme dostupnost a zašleme závaznou rezervaci s podklady pro pedagogický doprovod.</p>
-            </div>
-            <div className="steps__item">
-              <h3>Den D — návštěva</h3>
-              <p>Přijďte 10 minut před začátkem programu. Průvodce vás přivítá u vstupu do areálu.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Co od programu očekávat — pull quote */}
-      <section className="section section--cream">
-        <div className="container">
-          <div className="pullquote" data-reveal>
-            <p className="pullquote__text">
-              „Programy <em>kombinujeme</em> s krátkou diskuzí a praktickými ukázkami. Děti i dospělí odcházejí s konkrétním zážitkem, který jim zůstane."
-            </p>
-            <span className="pullquote__cite">Z reflexe pedagožky po návštěvě s 3. třídou ZŠ</span>
-          </div>
-        </div>
-      </section>
-
-      <CTABanner
-        title={
-          <>
-            Plánujete <em>třídní výlet?</em>
-          </>
-        }
-        description="Pondělí — pátek dopoledne. Po předchozí závazné rezervaci."
-        actions={[
-          { label: 'Rezervovat', href: '/kontakt' },
-          { label: 'Ceník', href: '/vyukovy-program-voda-v-pohybu', variant: 'ghost' },
-        ]}
-      />
-    </>
+      </div>
+    </section>
   );
 }

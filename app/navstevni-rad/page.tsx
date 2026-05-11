@@ -1,84 +1,66 @@
 import type { Metadata } from 'next';
-import { CTABanner } from '@/components/CTABanner';
-import { PageHero } from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Návštěvní řád',
-  description:
-    'Návštěvní řád vodní miniZOO Baška — pravidla pro pobyt v areálu, zákazy, odpovědnosti, bezpečnost a welfare zvířat. Před návštěvou si prosím pozorně přečtěte.',
+  description: 'Návštěvní řád vodní miniZOO Baška — pravidla pro pobyt v areálu, zákazy, odpovědnosti, bezpečnost.',
   alternates: { canonical: '/navstevni-rad' },
 };
 
 export default function NavstevniRadPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Pravidla pobytu"
-        title={
-          <>
-            Návštěvní <em>řád</em>
-          </>
-        }
-        description="Aby si návštěvu užili všichni — návštěvníci i naši obyvatelé. Před příchodem si prosím pozorně přečtěte následující body."
-        breadcrumbs={[{ label: 'Domů', href: '/' }, { label: 'Návštěvní řád' }]}
-      />
+    <section className="section section--paper">
+      <div className="container">
+        <header className="page-heading" data-reveal>
+          <h1>Návštěvní řád</h1>
+          <p>vodní miniZOO Baška</p>
+        </header>
 
-      <section className="section section--paper">
-        <div className="container">
-          <div className="prose" data-reveal>
-            <h2>Základní pravidla</h2>
-            <ol>
-              <li>Vstup je možný pouze v předem stanovených termínech v rámci výukových programů.</li>
-              <li>Hosté přicházejí s mírným předstihem. Prohlídky začínají v celé hodiny.</li>
-              <li>Restaurace Penzionu BAŠKA VODA CZ je dostupná od 14:00.</li>
-              <li>Všichni návštěvníci se podřizují pokynům průvodců a personálu.</li>
-            </ol>
+        <div className="prose">
+          <ol>
+            <li>
+              <strong>Vstup do vodní miniZOO Baška je možný v předem stanovených termínech v rámci výukových programů s průvodcem.</strong>
+            </li>
+            <li>
+              Prosíme hosty, aby na prohlídku, která začíná vždy v celou hodinu, dorazili s mírným předstihem.
+            </li>
+            <li>
+              Naše restaurace je Vám k dispozici již od <strong>14:00</strong>, rádi Vás přivítáme i před začátkem prohlídky.
+            </li>
+            <li>
+              Návštěvníci jsou povinni řídit se pokyny průvodce a personálu zařízení.
+            </li>
+            <li>
+              <strong>Je zakázáno:</strong>
+              <ul>
+                <li>krmit zvířata,</li>
+                <li>klepat na skla akvárií a terárií,</li>
+                <li>používat blesk při fotografování,</li>
+                <li>manipulovat se zvířaty nebo technickým vybavením,</li>
+                <li>vnášet vlastní zvířata do prostor expozic.</li>
+              </ul>
+            </li>
+            <li>
+              Děti se mohou pohybovat v areálu pouze v doprovodu dospělé osoby, která za ně nese plnou odpovědnost.
+            </li>
+            <li>
+              Z bezpečnostních a hygienických důvodů není dovoleno konzumovat vlastní jídlo a nápoje v prostorách expozic.
+            </li>
+            <li>
+              Do prostor expozic je zakázáno vnášet objemná zavazadla, ostré předměty, nářadí a jiné věci, které by mohly ohrozit bezpečnost návštěvníků, zvířat nebo způsobit poškození expozic, technického vybavení či zařízení. Tyto předměty je návštěvník povinen odložit u obsluhy na místě k tomu určeném. Provozovatel nenese odpovědnost za věci, které nebyly řádně předány obsluze k uložení.
+            </li>
+            <li>
+              V případě mimořádné situace jsou návštěvníci povinni řídit se pokyny personálu.
+            </li>
+            <li>
+              Porušení návštěvního řádu může vést k okamžitému ukončení prohlídky bez nároku na vrácení vstupného.
+            </li>
+          </ol>
 
-            <h2>Co je v areálu zakázáno</h2>
-            <ul>
-              <li><strong>Krmení zvířat</strong> mimo organizované krmení v rámci programu.</li>
-              <li><strong>Klepání</strong> na skla akvárií a terárií — vyplašené zvíře se může poranit.</li>
-              <li><strong>Fotografování s bleskem</strong> — blesk plaší zvířata, zejména plazy.</li>
-              <li><strong>Manipulace</strong> se zvířaty, vybavením, technologií nebo dekoracemi.</li>
-              <li>Vstup s <strong>vlastními domácími zvířaty</strong>.</li>
-              <li>Vlastní jídlo a nápoje v expozicích.</li>
-              <li>Velké kufry, ostré předměty a nářadí v prostorách.</li>
-            </ul>
-
-            <h2>Odpovědnosti</h2>
-            <ul>
-              <li>Děti mohou být v areálu pouze v doprovodu dospělé osoby, která za ně nese plnou odpovědnost.</li>
-              <li>Provozovatel neodpovídá za věci, které návštěvníci neodložili obsluze.</li>
-              <li>Porušení pravidel může vést k ukončení prohlídky <strong>bez nároku na vrácení vstupného</strong>.</li>
-              <li>V mimořádných situacích je nutné poslouchat pokyny personálu.</li>
-              <li>V případě úrazu nebo zdravotního problému neprodleně kontaktujte průvodce.</li>
-            </ul>
-
-            <h2>Welfare zvířat — proč ta pravidla</h2>
-            <p>
-              Zákazy nejsou administrativa, ale ochrana — pro vás i pro naše zvířata. Krokodýli, arapaimy a další druhy reagují citlivě na hluk, světlo i náhlé pohyby. Stresované zvíře přestane jíst, špatně se hojí a v nejhorším případě si může ublížit. Pravidla pomáhají, aby zvířata zůstala zdravá a vy jste je viděli v jejich přirozeném chování.
-            </p>
-
-            <hr />
-            <p>
-              <strong>Děkujeme</strong>, že nám pomáháte chránit zvířata i příjemnou atmosféru v areálu.
-            </p>
-          </div>
+          <p style={{ marginTop: '2rem', fontStyle: 'italic', textAlign: 'center', color: 'var(--color-text)' }}>
+            Tento návštěvní řád slouží k ochraně zvířat, návštěvníků a k zajištění plynulého provozu zařízení.
+          </p>
         </div>
-      </section>
-
-      <CTABanner
-        title={
-          <>
-            Připraveni přijít na <em>program?</em>
-          </>
-        }
-        description="Pravidla čteme rádi všichni. Na zbytek vás těšíme my i naši obyvatelé."
-        actions={[
-          { label: 'Rezervovat', href: '/kontakt' },
-          { label: 'Ceník', href: '/vyukovy-program-voda-v-pohybu', variant: 'ghost' },
-        ]}
-      />
-    </>
+      </div>
+    </section>
   );
 }

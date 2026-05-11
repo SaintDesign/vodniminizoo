@@ -1,283 +1,144 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { CTABanner } from '@/components/CTABanner';
-import { Hero } from '@/components/Hero';
-import { ArrowRight, BookIcon, DropIcon, HouseIcon, WaveIcon } from '@/components/icons';
+import { ContactBlock } from '@/components/ContactBlock';
+import { FeatureRow } from '@/components/FeatureRow';
+import { siteConfig } from '@/lib/site';
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
-
-      {/* O nás feature */}
-      <section className="section section--paper">
-        <div className="container feature">
-          <div className="feature__visual feature__visual--blob" data-reveal>
+      {/* Hero — Svět vody + rozvrh */}
+      <section className="section section--paper home-hero">
+        <div className="container" data-reveal>
+          <h2>{siteConfig.hero.title}</h2>
+          <p className="home-hero__time">{siteConfig.hero.schedule}</p>
+          <p className="home-hero__cta-text">{siteConfig.hero.note}</p>
+        </div>
+        <div className="container">
+          <div className="home-hero__img" data-reveal>
             <Image
-              src="/assets/images/expozice.jpeg"
-              alt="Pohled do expozice s akvárii vodní miniZOO Baška"
-              width={700}
-              height={700}
-              sizes="(min-width: 880px) 50vw, 100vw"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              src="/assets/images/ocelatus-1.jpeg"
+              alt="Astronotus ocellatus v akváriu"
+              width={1100}
+              height={620}
+              priority
+              sizes="(min-width: 1140px) 1100px, 92vw"
             />
-          </div>
-          <div data-reveal>
-            <span className="eyebrow">Kdo jsme</span>
-            <h2 className="h-display">
-              Učíme rozumět <em>vodě</em>
-              <br />
-              i tomu, co v ní žije.
-            </h2>
-            <p className="lead" style={{ marginTop: '1.2rem' }}>
-              Začalo to v roce 2017 jediným kajmanem brýlovým. Dnes provozujeme moderní expozice tropických i místních vodních biotopů a vzdělávací programy pro školy, rodiny i firemní skupiny.
-            </p>
-            <ul className="facts" style={{ marginTop: '2rem' }}>
-              <li>
-                <DropIcon />
-                <div>
-                  <strong>Vodní biotopy</strong>
-                  <span>Tropické, sladkovodní i venkovní rybníky</span>
-                </div>
-              </li>
-              <li>
-                <WaveIcon />
-                <div>
-                  <strong>Naučná stezka</strong>
-                  <span>Celoročně přístupná, venkovní okruh</span>
-                </div>
-              </li>
-              <li>
-                <HouseIcon />
-                <div>
-                  <strong>Pro školy a skupiny</strong>
-                  <span>Komentované programy s odborným výkladem</span>
-                </div>
-              </li>
-            </ul>
-            <Link className="btn btn--ghost" href="/o-nas" style={{ marginTop: '2rem' }}>
-              Naše příběhy a poslání
-            </Link>
+            <div className="home-hero__badge">
+              <Image src="/assets/images/logo.png" alt="vodní miniZOO Baška" width={110} height={110} />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Programs */}
-      <section className="section section--cream">
+      {/* Intro odstavce */}
+      <section className="section section--paper" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="row" style={{ justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem', gap: '2rem' }}>
-            <div data-reveal>
-              <span className="eyebrow">Vzdělávací programy</span>
-              <h2 className="h-display">
-                Tři okruhy. Jeden <em>živý</em> svět.
-              </h2>
-            </div>
-            <p className="muted" style={{ maxWidth: '48ch' }} data-reveal>
-              Každý program kombinuje komentovanou prohlídku se setkáním s živými zvířaty a praktickým výkladem o ekosystému.
+          <div className="intro" data-reveal>
+            <p>
+              Vodní miniZOO Baška je trvalé zařízení pro chov a prezentaci volně žijících vodních živočichů, provozované s důrazem na odbornost, ochranu přírody a environmentální vzdělávání. Zařízení je přístupné veřejnosti výhradně v rámci vzdělávacích programů s odborným výkladem.
             </p>
-          </div>
-
-          <div className="cards">
-            <article className="card" data-reveal>
-              <div className="card__media">
-                <Image src="/assets/images/akvarium.jpeg" alt="Velké sladkovodní akvárium" width={600} height={450} sizes="(min-width: 960px) 30vw, 100vw" />
-              </div>
-              <div className="card__body">
-                <span className="card__tag">Hlavní program · 60 min</span>
-                <h3 className="card__title">Voda v pohybu</h3>
-                <p className="card__text">
-                  Komentovaná prohlídka vnitřní expozice i venkovního okruhu. Dotkneme se pstruha, podíváme do akvárií a pochopíme, jak voda v krajině pracuje.
-                </p>
-                <Link className="card__link" href="/vyukovy-program-voda-v-pohybu">
-                  Ceník a rezervace <ArrowRight />
-                </Link>
-              </div>
-            </article>
-
-            <article className="card" data-reveal>
-              <div className="card__media">
-                <Image src="/assets/images/krokodyl.jpeg" alt="Krokodýl nilský" width={600} height={450} sizes="(min-width: 960px) 30vw, 100vw" />
-              </div>
-              <div className="card__body">
-                <span className="card__tag">Vnitřní okruh</span>
-                <h3 className="card__title">Svět vody</h3>
-                <p className="card__text">
-                  Krokodýli, vodní želvy a obří Arapaima gigas v největším sladkovodním akváriu regionu. Tropické biotopy zblízka.
-                </p>
-                <Link className="card__link" href="/program-svet-vody">
-                  Detail programu <ArrowRight />
-                </Link>
-              </div>
-            </article>
-
-            <article className="card" data-reveal>
-              <div className="card__media">
-                <Image src="/assets/images/stezka.jpeg" alt="Venkovní stezka" width={600} height={450} sizes="(min-width: 960px) 30vw, 100vw" />
-              </div>
-              <div className="card__body">
-                <span className="card__tag">Venkovní okruh · celoročně</span>
-                <h3 className="card__title">Rybniční ekosystém</h3>
-                <p className="card__text">
-                  Procházka okolo přírodních rybníků. Sladkovodní ryby, raci, škeble, obojživelníci i ptáci. Sezónně i krmení kaprů.
-                </p>
-                <Link className="card__link" href="/vzdelavaci-programy">
-                  Více o programu <ArrowRight />
-                </Link>
-              </div>
-            </article>
+            <p>
+              Veškeré <Link href="/vzdelavaci-programy">programy</Link> jsou vedeny průvodcem a jsou zaměřeny na poznávání vodních živočichů, jejich přirozených biotopů, fungování vodních ekosystémů a seznámení se se složitými procesy čištění vody. Výklad je koncipován tak, aby srozumitelnou a názornou formou přibližoval význam ochrany vod, biodiverzity a udržitelného přístupu člověka k vodnímu prostředí.
+            </p>
+            <p>
+              Vodní miniZOO Baška je zařízení se vzdělávacím a osvětovým posláním, jehož cílem je zvyšovat povědomí veřejnosti o významu vody, života v ní a o odpovědnosti člověka za stav přírodních ekosystémů.
+            </p>
+            <p>Návštěva je možná výhradně v rámci předem organizovaných termínech s průvodcem.</p>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section section--tight">
+      {/* O nás (růžová sekce) */}
+      <section className="section section--rose">
         <div className="container">
-          <div className="stats" data-reveal>
-            <div className="stats__item">
-              <span className="stats__num">41 000</span>
-              <span className="stats__label">litrů vody v hlavním akváriu</span>
-            </div>
-            <div className="stats__item">
-              <span className="stats__num">2017</span>
-              <span className="stats__label">založení projektu</span>
-            </div>
-            <div className="stats__item">
-              <span className="stats__num">80</span>
-              <span className="stats__label">kapacita programu</span>
-            </div>
-            <div className="stats__item">
-              <span className="stats__num">100 %</span>
-              <span className="stats__label">neziskově &amp; transparentně</span>
-            </div>
-          </div>
+          <FeatureRow
+            title="O nás"
+            image="/assets/images/ocelatus-2.webp"
+            imageAlt="Cichlida papouščí"
+            caption="Cichlida papouščí"
+            body={
+              <p>
+                Vodní miniZOO v Bašce je ideálním místem pro všechny milovníky zvířat a přírody. Nabízíme vám možnost prohlédnout si fascinující expozice krokodýlů, želv, exotických ryb, ale i přírodní biotopy s místní faunou a naučit se více o jejich životě díky výukovým programům. Přijďte a objevte krásy vodního světa s námi!
+              </p>
+            }
+            more={{ label: 'Pokračujte v příběhu', href: '/o-nas' }}
+          />
         </div>
       </section>
 
-      {/* Animals gallery */}
+      {/* Vzdělávací a zážitkové programy */}
       <section className="section section--paper">
         <div className="container">
-          <div className="row" style={{ justifyContent: 'space-between', marginBottom: '2.5rem', gap: '2rem' }}>
-            <div data-reveal>
-              <span className="eyebrow">Naši obyvatelé</span>
-              <h2 className="h-display">
-                Sladkovodní obři <em>i ti drobní.</em>
-              </h2>
-            </div>
-            <Link className="btn btn--ghost" href="/fotogalerie" data-reveal>
-              Celá fotogalerie
-            </Link>
-          </div>
-
-          <div className="gallery gallery--zoo" data-reveal>
-            {[
-              { src: '/assets/images/akvarium.jpeg', alt: 'Hlavní akvárium', caption: 'Akvárium · 41 000 l' },
-              { src: '/assets/images/krokodyl.jpeg', alt: 'Krokodýl nilský', caption: 'Krokodýl nilský' },
-              { src: '/assets/images/ocelatus-1.jpeg', alt: 'Astronotus ocellatus', caption: 'Astronotus ocellatus' },
-              { src: '/assets/images/ocelatus-2.webp', alt: 'Tropická ryba', caption: 'Pestrá tropická ryba' },
-              { src: '/assets/images/expozice.jpeg', alt: 'Interiér expozice', caption: 'Expozice' },
-              { src: '/assets/images/stezka.jpeg', alt: 'Venkovní stezka', caption: 'Naučná stezka — celoročně' },
-            ].map((g) => (
-              <figure key={g.src}>
-                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                  <Image src={g.src} alt={g.alt} fill sizes="(min-width: 720px) 50vw, 100vw" style={{ objectFit: 'cover' }} />
-                </div>
-                <figcaption>{g.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
+          <FeatureRow
+            title="Vzdělávací a zážitkové programy"
+            image="/assets/images/deti.jpeg"
+            imageAlt="Vzdělávací a zážitkové programy"
+            body={
+              <p>
+                Vodní miniZOO BAŠKA nabízí vzdělávací a zážitkové programy pro mateřské a základní školy, školní družiny, organizace pečující o osoby se zdravotním znevýhodněním i volnočasové skupiny.
+              </p>
+            }
+            more={{ label: 'Pokračujte v příběhu', href: '/vzdelavaci-programy' }}
+          />
         </div>
       </section>
 
-      {/* Audience */}
-      <section className="section section--cream">
+      {/* Navštívili nás (růžová) */}
+      <section className="section section--rose">
         <div className="container">
-          <div className="center" style={{ maxWidth: '60ch', marginInline: 'auto' }} data-reveal>
-            <span className="eyebrow" style={{ justifyContent: 'center' }}>Pro koho jsme</span>
-            <h2 className="h-display">
-              Vítáme děti, rodiny <em>i odborníky.</em>
-            </h2>
-            <p className="lead" style={{ margin: '1.2rem auto 3rem' }}>
-              Programy přizpůsobujeme věku i tematickému zájmu. Zařízení je přístupné výhradně v rámci vzdělávacích programů s odborným výkladem.
-            </p>
-          </div>
-
-          <div className="audience">
-            <div className="audience__item" data-reveal>
-              <HouseIcon />
-              <h3>Mateřské školy</h3>
-              <p>Hravá podoba, krátké úseky a setkání se zvířaty na úrovni očí dětí.</p>
-            </div>
-            <div className="audience__item" data-reveal>
-              <BookIcon />
-              <h3>Základní školy</h3>
-              <p>Provazujeme s rámcovými programy — voda v krajině, ekosystém, biologie druhů.</p>
-            </div>
-            <div className="audience__item" data-reveal>
-              <DropIcon />
-              <h3>Rodiny</h3>
-              <p>Krátká komentovaná prohlídka pro vícegenerační skupiny.</p>
-            </div>
-            <div className="audience__item" data-reveal>
-              <WaveIcon />
-              <h3>Skupiny &amp; firmy</h3>
-              <p>Teambuilding, oborové návštěvy a možnost individuální dohody nad rámec programů.</p>
-            </div>
-          </div>
+          <FeatureRow
+            title="Navštívili nás"
+            image="/assets/images/skola.jpeg"
+            imageAlt="Skupina dětí na návštěvě"
+            body={
+              <p>
+                Naši miniZOO s oblibou navštěvují školy, školky, organizace i milovníci zvířat všeho věku. Každá návštěva je jedinečný zážitek plný poznání. I vy se můžete stát součástí našich příběhů — stačí nás navštívit a nechat u nás kousek své radosti.
+              </p>
+            }
+            more={{ label: 'Tady uvidíte všechny', href: '/navstivilinas' }}
+          />
         </div>
       </section>
 
-      {/* Projects */}
-      <section className="section section--paper">
+      {/* "Barunka" a její kamarádi */}
+      <section className="section section--rose">
         <div className="container">
-          <div data-reveal>
-            <span className="eyebrow">Aktuální projekty</span>
-            <h2 className="h-display">
-              Co se u nás právě <em>tvoří.</em>
-            </h2>
+          <div className="section__head" data-reveal>
+            <h2>„Barunka" a její kamarádi</h2>
+            <Link className="more" href="/fotogalerie">Fotogalerie</Link>
           </div>
-          <div className="cards" style={{ marginTop: '2.5rem' }}>
-            <article className="card" data-reveal>
-              <div className="card__body">
-                <span className="card__tag">Termín · 21. 01. 2026</span>
-                <h3 className="card__title">Komplexní filtrační soustava</h3>
-                <p className="card__text">
-                  Vícestupňová filtrace pro dlouhodobě stabilní kvalitu vody — současně jako vzdělávací ukázka principů jejího čištění.
-                </p>
+          <div className="gallery-grid" data-reveal>
+            <figure>
+              <div className="gallery-grid__media">
+                <Image src="/assets/images/krokodyl.jpeg" alt="Barunka" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
               </div>
-            </article>
-            <article className="card" data-reveal>
-              <div className="card__body">
-                <span className="card__tag">Termín · 19. 05. 2025</span>
-                <h3 className="card__title">Naučná stezka „Voda v pohybu"</h3>
-                <p className="card__text">
-                  Vybudování naučné stezky v areálu — koloběh vody, význam zadržování vody v krajině a její ochrana.
-                </p>
+              <figcaption>Barunka</figcaption>
+            </figure>
+            <figure>
+              <div className="gallery-grid__media">
+                <Image src="/assets/images/expozice.jpeg" alt="Kožnatka floridská" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
               </div>
-            </article>
-            <article className="card" data-reveal>
-              <div className="card__body">
-                <span className="card__tag">Termín · 19. 05. 2025</span>
-                <h3 className="card__title">Terárium pro krokodýla nilského</h3>
-                <p className="card__text">Kompletní dokončení expozice s důrazem na welfare a vzdělávací hodnotu prostoru.</p>
+              <figcaption>Kožnatka floridská</figcaption>
+            </figure>
+            <figure>
+              <div className="gallery-grid__media">
+                <Image src="/assets/images/akvarium.jpeg" alt="Arapaima gigas" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
               </div>
-            </article>
-          </div>
-          <div style={{ marginTop: '2rem' }}>
-            <Link className="btn btn--ghost" href="/projekty-a-vyzvy">
-              Všechny projekty
-            </Link>
+              <figcaption>Arapaima gigas</figcaption>
+            </figure>
+            <figure>
+              <div className="gallery-grid__media">
+                <Image src="/assets/images/ocelatus-1.jpeg" alt="Ocelatus" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
+              </div>
+              <figcaption>Ocelatus</figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <CTABanner
-        title={<>Plánujete třídní výlet nebo <em>rodinnou návštěvu?</em></>}
-        description="Dopolední rezervace pro skupiny do 80 osob — komentovaná prohlídka 60 minut, dospělí 150 Kč, děti 120 Kč."
-        actions={[
-          { label: 'Rezervovat program', href: '/kontakt' },
-          { label: 'Ceník', href: '/vyukovy-program-voda-v-pohybu', variant: 'ghost' },
-        ]}
-      />
+      {/* Kontakt */}
+      <ContactBlock />
     </>
   );
 }

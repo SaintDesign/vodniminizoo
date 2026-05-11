@@ -1,28 +1,29 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Open_Sans, Playfair_Display } from 'next/font/google';
 import { RevealEffects } from '@/components/RevealEffects';
 import { SiteFooter } from '@/components/SiteFooter';
 import { SiteHeader } from '@/components/SiteHeader';
 import { siteConfig } from '@/lib/site';
 import './globals.css';
 
-const fraunces = Fraunces({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-  variable: '--font-fraunces',
-});
-
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ['latin', 'latin-ext'],
   weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-playfair',
+});
+
+const openSans = Open_Sans({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-open-sans',
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0a2233',
+  themeColor: '#c6739e',
   width: 'device-width',
   initialScale: 1,
 };
@@ -30,25 +31,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Vzdělávací centrum vodních ekosystémů`,
+    default: siteConfig.name,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  authors: [{ name: siteConfig.legal.company, url: siteConfig.url }],
-  creator: siteConfig.legal.company,
-  publisher: siteConfig.legal.company,
-  keywords: [
-    'vodní miniZOO Baška',
-    'akvárium Baška',
-    'vzdělávací programy',
-    'arapaima gigas',
-    'krokodýl nilský',
-    'vodní ekosystémy',
-    'Beskydy ZOO',
-    'školní výlet Baška',
-    'sladkovodní akvárium',
-  ],
   alternates: { canonical: '/' },
   icons: { icon: '/assets/images/logo.png' },
   openGraph: {
@@ -56,13 +43,13 @@ export const metadata: Metadata = {
     locale: 'cs_CZ',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Vzdělávací centrum vodních ekosystémů`,
+    title: siteConfig.name,
     description: siteConfig.description,
     images: [{ url: '/assets/images/akvarium.jpeg', width: 1200, height: 800, alt: siteConfig.name }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.name}`,
+    title: siteConfig.name,
     description: siteConfig.description,
     images: ['/assets/images/akvarium.jpeg'],
   },
@@ -85,12 +72,11 @@ const orgJsonLd = {
     postalCode: '739 01',
     addressCountry: 'CZ',
   },
-  sameAs: [siteConfig.contact.facebook],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="cs" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="cs" className={`${playfair.variable} ${openSans.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -99,9 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <a className="skip-link" href="#main">
-          Přeskočit na obsah
-        </a>
+        <a className="skip-link" href="#main">Přeskočit na obsah</a>
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />

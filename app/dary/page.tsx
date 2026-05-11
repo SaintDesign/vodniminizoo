@@ -1,172 +1,125 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
-import { CTABanner } from '@/components/CTABanner';
-import { PageHero } from '@/components/PageHero';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Dary',
-  description:
-    'Číslo účtu pro dary: 131-3450970227/0100 (Komerční banka). Variabilní symbol = datum narození bez teček. Potvrzení o daru pro daňové účely na vyžádání.',
+  description: 'Podpořte vodní miniZOO Baška finančním darem na účet 131-3450970227/0100 (Komerční Banka). Na vyžádání vystavíme potvrzení pro daňové účely.',
   alternates: { canonical: '/dary' },
 };
 
 export default function DaryPage() {
   return (
-    <>
-      <PageHero
-        eyebrow="Finanční podpora"
-        title={
-          <>
-            Dárcovský účet a <em>jak na to.</em>
-          </>
-        }
-        description="Jednorázové i pravidelné finanční nebo materiální příspěvky. Na vyžádání vystavíme potvrzení o daru pro daňové účely. Každý dar má svůj smysl."
-        breadcrumbs={[
-          { label: 'Domů', href: '/' },
-          { label: 'Podpora', href: '/podpora' },
-          { label: 'Dary' },
-        ]}
-      />
+    <section className="section section--paper">
+      <div className="container">
+        <header className="page-heading" data-reveal>
+          <h1>Dary</h1>
+        </header>
 
-      {/* Hlavní účet */}
-      <section className="section section--paper">
-        <div className="container">
-          <div className="contact-grid">
-            <div className="contact-card" data-reveal>
-              <span className="eyebrow" style={{ marginBottom: '1rem' }}>Bankovní účet</span>
-              <dl>
-                <div>
-                  <dt>Číslo účtu</dt>
-                  <dd style={{ fontSize: '1.4rem' }}>{siteConfig.legal.bankAccount}</dd>
-                </div>
-                <div>
-                  <dt>Banka</dt>
-                  <dd style={{ fontSize: '1.05rem' }}>{siteConfig.legal.bank}</dd>
-                </div>
-                <div>
-                  <dt>Variabilní symbol</dt>
-                  <dd style={{ fontSize: '1rem', color: 'var(--slate)' }}>vaše datum narození bez teček</dd>
-                </div>
-                <div>
-                  <dt>Příjemce</dt>
-                  <dd style={{ fontSize: '1rem' }}>{siteConfig.legal.company}</dd>
-                </div>
-                <div>
-                  <dt>IČ / DIČ</dt>
-                  <dd style={{ fontSize: '1rem' }}>{siteConfig.legal.ico} · {siteConfig.legal.dic}</dd>
-                </div>
-              </dl>
-              <div style={{ marginTop: '2rem', display: 'flex', gap: '.6rem', flexWrap: 'wrap' }}>
-                <a className="btn btn--moss" href="mailto:info@vodniminizoo.cz?subject=Potvrzen%C3%AD%20o%20daru">
-                  Žádost o potvrzení o daru
-                </a>
-                <a className="btn btn--ghost" href={siteConfig.contact.phoneHref}>
-                  Zavolat
-                </a>
-              </div>
-            </div>
+        <div className="prose">
+          <h2 data-reveal>Každý dar pomáhá</h2>
+          <p>
+            Každý den se u nás něco děje — krmíme zvířata, čistíme, udržujeme terária i akvária, stavíme a vylepšujeme, abychom pro vás vše dokončili co nejdříve.
+          </p>
+          <p>
+            <strong>Každý dar, malý i velký, nám v tom velmi pomáhá.</strong>
+          </p>
+          <p>
+            Podpořit nás můžete jednorázově nebo pravidelně — finančně, materiálně či vlastními dovednostmi. Každá forma pomoci má pro nás obrovský význam.
+          </p>
 
-            <div className="prose" data-reveal style={{ maxWidth: 'none' }}>
-              <h2>Pravidelná podpora</h2>
-              <p>
-                Trvalý příkaz i ten v hodnotě 100 Kč měsíčně nám velmi pomáhá s plánováním. Můžeme díky němu dlouhodobě naplánovat krmení, údržbu i investice do nových expozic.
-              </p>
-              <h3>Jak nastavit trvalý příkaz</h3>
-              <ol>
-                <li>Ve vašem internetovém bankovnictví zvolte „Trvalý příkaz / opakovanou platbu".</li>
-                <li>Zadejte číslo účtu <strong>{siteConfig.legal.bankAccount}</strong>.</li>
-                <li>Variabilní symbol = datum narození bez teček (např. 21071985).</li>
-                <li>Frekvence: měsíčně / čtvrtletně / ročně — podle vás.</li>
-              </ol>
-              <p>
-                Pokud chcete, abychom vám jednou ročně vystavili souhrnné potvrzení o daru pro daňové účely, napište nám e-mail na <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a> se jménem a adresou.
-              </p>
-            </div>
+          <h3>Jak můžete pomoci</h3>
+          <ul>
+            <li>
+              <strong>Finančním darem</strong> — převodem na náš účet <strong>{siteConfig.legal.bankAccount}</strong>, VS: vaše datum narození bez teček
+            </li>
+            <li>
+              <strong>Dobrovolnickou pomocí</strong> — při údržbě areálu nebo organizaci akcí
+            </li>
+          </ul>
+          <p>
+            Na vyžádání vám rádi vystavíme potvrzení pro daňové účely.
+            <br />
+            Pokud budete souhlasit, s radostí uvedeme vaše jméno nebo logo na našem webu jako poděkování.
+          </p>
+
+          <p style={{ textAlign: 'center', color: 'var(--color-rose)', fontStyle: 'italic', marginTop: '1.5rem' }}>
+            I malá pomoc má velký smysl.
+          </p>
+
+          <hr />
+
+          <h2 data-reveal>Finanční dar</h2>
+          <p>
+            Finanční podpora je jedním z nejúčinnějších způsobů, jak se můžete zapojit do rozvoje vodní miniZOO. Pomáhá nám pokrýt každodenní péči o zvířata, rozšiřovat expozice, vylepšovat zázemí a pořádat vzdělávací programy pro veřejnost i školy.
+          </p>
+          <p>
+            Dary přijímáme na účet vodního miniZOO, takže vždy víte, kam vaše podpora směřuje. Každý příspěvek — ať už jednorázový nebo pravidelný — má konkrétní dopad. Vážíme si vaší důvěry a otevřenosti, s jakou nám pomáháte vytvářet prostor, kde příroda inspiruje.
+          </p>
+
+          <p style={{ textAlign: 'center', marginTop: '2rem', padding: '1.5rem', background: 'var(--color-rose-bg)', borderRadius: 4 }}>
+            <strong style={{ color: 'var(--color-rose)', fontSize: '1.1rem' }}>
+              Číslo účtu: {siteConfig.legal.bankAccount}
+            </strong>
+            <br />
+            {siteConfig.legal.bank}
+            <br />
+            <span style={{ color: 'var(--color-text)' }}>VS: vaše datum narození bez teček</span>
+          </p>
+
+          <div className="btn-row" style={{ marginTop: '2rem' }}>
+            <a className="btn-rose" href="mailto:info@vodniminizoo.cz?subject=Potvrzen%C3%AD%20o%20daru">
+              Žádost o potvrzení o daru
+            </a>
           </div>
+
+          <hr />
+
+          <h2 data-reveal>Dobrovolnická pomoc</h2>
+          <p>
+            Pomáhat může každý — i bez finančního daru. V naší vodní miniZOO vítáme každého, kdo chce věnovat svůj čas, energii a dobrou vůli pro dobrou věc.
+          </p>
+          <p>
+            Dobrovolníci jsou pro nás nepostradatelní — pomáhají udržovat areál v chodu, starají se o zvířata, vítají návštěvníky a podílejí se na programech pro školy i veřejnost.
+          </p>
+
+          <h3>Jak můžete pomoci</h3>
+          <ul>
+            <li>
+              <strong>Péče o zvířata</strong> — pomoc s krmením, údržbou nádrží, přípravou potravy či běžnou péčí pod dohledem chovatele.
+            </li>
+            <li>
+              <strong>Údržba areálu</strong> — práce na zahradě, úprava cest, drobné opravy, sekání trávy, výsadba rostlin nebo pomoc při zvelebování prostředí.
+            </li>
+            <li>
+              <strong>Vzdělávací programy</strong> — asistence při komentovaných prohlídkách, školních exkurzích, workshopech a akcích pro děti.
+            </li>
+            <li>
+              <strong>Akce a provoz</strong> — pomoc při organizaci besed, dnů otevřených dveří, výstav či doprovodných programů.
+            </li>
+            <li>
+              <strong>Odborná či kreativní pomoc</strong> — grafika, fotografie, propagace, tvorba výukových materiálů nebo překlady textů.
+            </li>
+          </ul>
+
+          <h3>Proč se zapojit</h3>
+          <p>
+            Dobrovolnictví u nás přináší radost z užitečné práce, nové zkušenosti, kontakt se zvířaty i přírodou a možnost být součástí smysluplného projektu.
+          </p>
+          <p>
+            Záleží nám na tom, aby se každý dobrovolník cítil vítán a věděl, že jeho úsilí má skutečný smysl.
+          </p>
+          <p>
+            Pokud se chcete zapojit, napište nám na <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a> nebo nás kontaktujte telefonicky. Rádi se s vámi domluvíme na možnostech spolupráce podle vašich časových možností a schopností.
+          </p>
+
+          <p className="center" style={{ marginTop: '2rem' }}>
+            <Link href="/podpora" className="btn-rose" style={{ background: 'transparent', color: 'var(--color-rose)', boxShadow: 'inset 0 0 0 1px var(--color-rose)' }}>
+              ZPĚT
+            </Link>
+          </p>
         </div>
-      </section>
-
-      {/* Tiers — návrh hodnot */}
-      <section className="section section--cream">
-        <div className="container">
-          <div data-reveal style={{ marginBottom: '2.5rem', maxWidth: '60ch' }}>
-            <span className="eyebrow">Co znamená kolik</span>
-            <h2 className="h-display">
-              Orientační dopad <em>vašeho</em> daru.
-            </h2>
-            <p className="lead" style={{ marginTop: '1rem' }}>
-              Konkrétně si představte, co váš dar pokryje. Hodnoty jsou orientační — záleží na sezóně a aktuálních cenách.
-            </p>
-          </div>
-
-          <div className="tiers" data-reveal>
-            <article className="tier">
-              <h3 className="tier__name">Drobný dar</h3>
-              <p className="tier__price">300 Kč</p>
-              <ul>
-                <li>Týdenní krmení skupiny menších ryb</li>
-                <li>Náhradní filtrační vložka</li>
-                <li>Jeden vstup na program pro dítě ze sociálně slabší rodiny</li>
-              </ul>
-            </article>
-            <article className="tier tier--featured">
-              <h3 className="tier__name">Standardní dar</h3>
-              <p className="tier__price">1 500 Kč</p>
-              <ul>
-                <li>Měsíční krmení velkých druhů</li>
-                <li>Veterinární kontrola</li>
-                <li>Materiály pro vzdělávací program</li>
-                <li>Veřejné poděkování na webu</li>
-              </ul>
-            </article>
-            <article className="tier">
-              <h3 className="tier__name">Větší dar</h3>
-              <p className="tier__price">10 000 Kč</p>
-              <ul>
-                <li>Symbolická adopce konkrétního zvířete</li>
-                <li>Certifikát s fotografií</li>
-                <li>Pozvánka na exkurzi v zázemí</li>
-                <li>Veřejné poděkování v areálu</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Dobrovolnictví */}
-      <section className="section section--paper">
-        <div className="container">
-          <div className="prose" data-reveal>
-            <span className="eyebrow">Dobrovolnická pomoc</span>
-            <h2>Není nutný <em>finanční</em> dar.</h2>
-            <p>Můžete nabídnout svůj čas a dovednosti v těchto oblastech:</p>
-            <ul>
-              <li><strong>Péče o zvířata</strong> — krmení, údržba nádrží, asistence při větších úkonech.</li>
-              <li><strong>Údržba areálu</strong> — práce na zahradě, opravy, sezónní úpravy.</li>
-              <li><strong>Vzdělávací programy</strong> — asistence při prohlídkách, příprava materiálů.</li>
-              <li><strong>Organizace akcí a programů</strong> — koordinace, registrace, propagace.</li>
-              <li><strong>Odborná pomoc</strong> — grafika, fotografie, video, překlady, IT, právo, účetnictví.</li>
-            </ul>
-            <p>
-              Zájemci o dobrovolnictví se mohou přihlásit na <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a> nebo telefonicky na <a href={siteConfig.contact.phoneHref}>{siteConfig.contact.phone}</a>. Společně domluvíme rozsah, formu a frekvenci pomoci.
-            </p>
-            <blockquote>„Každý dar, malý i velký, nám velmi pomáhá."</blockquote>
-          </div>
-        </div>
-      </section>
-
-      <CTABanner
-        title={
-          <>
-            Máte dotaz k <em>daru?</em>
-          </>
-        }
-        description="Ozvěte se — odpovíme do dvou pracovních dnů."
-        actions={[
-          { label: 'Napsat e-mail', href: siteConfig.contact.emailHref },
-          { label: 'Zavolat', href: siteConfig.contact.phoneHref, variant: 'ghost' },
-        ]}
-      />
-    </>
+      </div>
+    </section>
   );
 }
