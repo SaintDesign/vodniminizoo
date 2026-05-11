@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ContactBlock } from '@/components/ContactBlock';
+import { kontaktImages } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Kontakt',
@@ -23,6 +24,19 @@ export default function KontaktPage() {
             <p style={{ color: 'var(--color-rose)', textAlign: 'center', fontSize: '1.1rem' }}>
               <strong>Délka trasy: přibližně 30 minut chůze ➡</strong>
             </p>
+
+            <figure style={{ margin: '2rem 0' }} data-reveal>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={kontaktImages.pesiTrasa} alt="Pěší trasa Pržno → vodní miniZOO Baška" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+            </figure>
+
+            <figure style={{ margin: '2rem auto', maxWidth: 400 }} data-reveal>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={kontaktImages.qrTrasa} alt="QR kód pěší trasy" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+              <figcaption style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '.9rem', marginTop: '.5rem', color: 'var(--color-text)' }}>
+                QR kód pěší trasy
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { oNasImages } from '@/lib/images';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -27,12 +28,13 @@ export default function ONasPage() {
 
             <figure style={{ margin: '2rem 0' }} data-reveal>
               <Image
-                src="/assets/images/koznatka.jpeg"
+                src={oNasImages.hero}
                 alt="Areál vodní miniZOO Baška"
                 width={760}
                 height={420}
                 sizes="(min-width: 800px) 760px, 92vw"
                 style={{ width: '100%', height: 'auto', borderRadius: 4 }}
+                unoptimized
               />
             </figure>
 

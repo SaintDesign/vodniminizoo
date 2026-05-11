@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { podporaImages } from '@/lib/images';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -21,6 +22,11 @@ export default function PodporaPage() {
             Vodní miniZOO by bez laskavé pomoci lidí jako jste vy nemohla dělat to, co dělá. Každý příspěvek — malý i velký — pomáhá zlepšovat podmínky pro naše zvířecí svěřence, rozšiřovat chovatelské zázemí a pořádat programy, které přibližují přírodu dětem i dospělým.
           </p>
 
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={podporaImages[0]} alt="Podpora areálu" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <p>Možností, jak nás podpořit, je hned několik:</p>
           <ul>
             <li>
@@ -37,6 +43,11 @@ export default function PodporaPage() {
             </li>
           </ul>
 
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={podporaImages[1]} alt="Areál" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <p style={{ fontStyle: 'italic', color: 'var(--color-rose)', textAlign: 'center', marginTop: '2rem' }}>
             Každá pomoc se počítá. A každá nese kus dobré vůle, která nás posouvá dál.
           </p>
@@ -46,6 +57,11 @@ export default function PodporaPage() {
             <Link className="btn-rose" href="/dary">Dary</Link>
             <Link className="btn-rose" href="/sponzoring">Sponzoring</Link>
           </div>
+
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={podporaImages[2]} alt="Detail areálu" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
 
           <hr />
 

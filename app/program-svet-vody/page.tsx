@@ -1,12 +1,14 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { svetVodyImages } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Program Svět vody',
   description: 'Komentované prohlídky vnitřního i venkovního okruhu. Krokodýli, vodní želvy, Arapaima gigas v největším akváriu Moravskoslezského kraje (41 000 l). Místní biotopy a život kolem rybníků.',
   alternates: { canonical: '/program-svet-vody' },
 };
+
+const labels = ['Krokodýl', 'Arapaima gigas', 'Obojživelníci', 'Naučná stezka'];
 
 export default function ProgramSvetVodyPage() {
   return (
@@ -18,30 +20,15 @@ export default function ProgramSvetVodyPage() {
 
         {/* Hero 4-up s animaly */}
         <div className="gallery-grid" data-reveal style={{ marginBottom: '3rem' }}>
-          <figure>
-            <div className="gallery-grid__media">
-              <Image src="/assets/images/cichlida-papousci.jpeg" alt="Krokodýl" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
-            </div>
-            <figcaption>Krokodýl nilský</figcaption>
-          </figure>
-          <figure>
-            <div className="gallery-grid__media">
-              <Image src="/assets/images/arapaima.jpeg" alt="Arapaima gigas" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
-            </div>
-            <figcaption>Arapaima gigas</figcaption>
-          </figure>
-          <figure>
-            <div className="gallery-grid__media">
-              <Image src="/assets/images/arapaima.jpeg" alt="Vodní želva" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
-            </div>
-            <figcaption>Obojživelníci</figcaption>
-          </figure>
-          <figure>
-            <div className="gallery-grid__media">
-              <Image src="/assets/images/koznatka.jpeg" alt="Naučná stezka" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
-            </div>
-            <figcaption>Naučná stezka</figcaption>
-          </figure>
+          {svetVodyImages.map((src, i) => (
+            <figure key={src}>
+              <div className="gallery-grid__media">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={src} alt={labels[i]} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <figcaption>{labels[i]}</figcaption>
+            </figure>
+          ))}
         </div>
 
         <div className="prose">

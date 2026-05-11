@@ -362,6 +362,34 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   gap: 1.5rem;
 }
 
+/* Foto-grid — masonry-like layout pro /fotogalerie */
+.foto-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.foto-grid__item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-rose-bg);
+}
+.foto-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.foto-grid__item:hover img { transform: scale(1.04); }
+.foto-grid__item--1 { aspect-ratio: 3/4; }
+.foto-grid__item--2 { aspect-ratio: 1/1; }
+.foto-grid__item--3 { aspect-ratio: 4/5; }
+.foto-grid__item--4 { aspect-ratio: 3/4; }
+@media (max-width: 880px) { .foto-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; } }
+
 /* Mixed gallery — tall + 2 short stacked + tall (homepage Barunka) */
 .gallery-mixed {
   max-width: 1100px;

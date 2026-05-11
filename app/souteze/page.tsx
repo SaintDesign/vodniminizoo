@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { soutezImage } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Soutěž 2026',
@@ -13,6 +14,11 @@ export default function SoutezePage() {
         <header className="page-heading" data-reveal>
           <h1>Soutěž 2026</h1>
         </header>
+
+        <figure style={{ maxWidth: 760, margin: '0 auto 2rem' }} data-reveal>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={soutezImage} alt="Soutěž 2026 — Zážitek ve vodním mini ZOO Baška" style={{ width: '100%', height: 'auto' }} />
+        </figure>
 
         <div className="prose">
           <p data-reveal style={{ fontSize: '1.05rem' }}>
@@ -79,27 +85,21 @@ export default function SoutezePage() {
             Na jeho místo automaticky nastupuje druhý vylosovaný účastník, který se tímto stává náhradním výhercem hlavní ceny.
           </p>
           <p>
-            Pokud by se situace opakovala (tj. ani druhého výherce nebude možné kontaktovat, případně výhru odmítne do 5 dnů od oznámení), přechází nárok na výhru na třetího vylosovaného účastníka.
+            Pokud by se situace opakovala, přechází nárok na výhru na třetího vylosovaného účastníka.
           </p>
           <p>
-            Nebude-li možné kontaktovat ani třetího výherce, výhra propadá pořadateli soutěže, který si vyhrazuje právo rozhodnout o jejím dalším využití.
+            Nebude-li možné kontaktovat ani třetího výherce, výhra propadá pořadateli soutěže.
           </p>
 
           <h3>5. Ochrana osobních údajů (GDPR)</h3>
           <p>
-            Účastí v soutěži dává soutěžící pořadateli souhlas se zpracováním osobních údajů v rozsahu jméno, příjmení, adresa, e-mail, telefonní číslo za účelem realizace soutěže, vyhodnocení a předání výher.
-          </p>
-          <p>
-            Osobní údaje budou zpracovávány pouze po dobu nezbytně nutnou k organizaci soutěže a poté bezpečně zlikvidovány. Správcem údajů je vodní miniZOO Baška z. s.
+            Účastí v soutěži dává soutěžící pořadateli souhlas se zpracováním osobních údajů v rozsahu jméno, příjmení, adresa, e-mail, telefonní číslo za účelem realizace soutěže, vyhodnocení a předání výher. Správcem údajů je vodní miniZOO Baška z. s.
           </p>
 
           <h3>6. Závěrečná ustanovení</h3>
           <p>Účastí v soutěži soutěžící potvrzuje, že se seznámil s tímto herním řádem a souhlasí s jeho zněním.</p>
           <p>
-            Pořadatel si vyhrazuje právo podmínky soutěže kdykoliv upravit nebo pozastavit, pokud to vyžadují provozní nebo organizační důvody. Na výhry nevzniká právní nárok a nelze je vymáhat soudní cestou.
-          </p>
-          <p>
-            Pořadatel si vyhrazuje právo zveřejnit jméno výherce a jeho obec bydliště v propagačních materiálech soutěže. Zařazením se do soutěže dávají výherci souhlas se zveřejněním jejich jména.
+            Pořadatel si vyhrazuje právo podmínky soutěže kdykoliv upravit nebo pozastavit. Na výhry nevzniká právní nárok a nelze je vymáhat soudní cestou.
           </p>
 
           <p style={{ marginTop: '2rem', textAlign: 'center', color: 'var(--color-rose)' }}>

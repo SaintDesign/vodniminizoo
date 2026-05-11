@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { programyImages } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Vzdělávací programy',
@@ -20,6 +21,11 @@ export default function VzdelavaciProgramyPage() {
         </div>
 
         <div className="prose">
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={programyImages.group} alt="Skupina při programu" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <div className="btn-row" data-reveal>
             <Link className="btn-rose" href="#metodika">Metodika výukového programu</Link>
           </div>
@@ -27,9 +33,21 @@ export default function VzdelavaciProgramyPage() {
           <p id="metodika" style={{ marginTop: '2rem' }}>
             Voda je základem života — pro přírodu, ekosystémy i člověka. V připravovaných vzdělávacích programech se zaměřujeme na ochranu vody v přírodě, význam čištění vody, její roli pro rostliny, živočichy i krajinu a na téma zadržování vody v krajině.
           </p>
+
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={programyImages.child1} alt="Dítě při výuce" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <p>
             Součástí programů jsou komentované prohlídky, které propojují svět exotických vodních zvířat, plazů, želv a ryb s místním biotopem čtyř rybníků. Návštěvníci se seznámí nejen s rybami našich vod — zejména pstruhem potočním, duhovým a sivenem americkým, ale také s kaprem, amurem, karasem, jeseterem či dalšími druhy ryb. Pozornost věnujeme i dalším obyvatelům vodního prostředí, jako jsou škeble, raci, obojživelníci a vzácní ptáci, které voda přirozeně přitahuje. Zároveň představujeme exotická vodní zvířata, mezi nimi krokodýly, vodní želvy a velké sladkovodní ryby. Pýchou našeho zařízení je chov královny Amazonky — arapaimy gigas, jedné z největších sladkovodních ryb světa, která je silným symbolem významu ochrany vodních ekosystémů napříč kontinenty.
           </p>
+
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={programyImages.child2} alt="Aktivita s dětmi" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <p>
             Programy jsou určeny dětem i dospělým, široké veřejnosti o víkendech, stejně jako školám, organizacím, skupinám a osobám s různými typy zdravotního znevýhodnění. Vše probíhá po individuální domluvě, s možností přizpůsobení obsahu, rozsahu i formy programu konkrétním potřebám účastníků.
           </p>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { daryImages } from '@/lib/images';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -24,6 +25,12 @@ export default function DaryPage() {
           <p>
             <strong>Každý dar, malý i velký, nám v tom velmi pomáhá.</strong>
           </p>
+
+          <figure style={{ margin: '2rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={daryImages.peni} alt="Finanční dary" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <p>
             Podpořit nás můžete jednorázově nebo pravidelně — finančně, materiálně či vlastními dovednostmi. Každá forma pomoci má pro nás obrovský význam.
           </p>
@@ -53,9 +60,6 @@ export default function DaryPage() {
           <p>
             Finanční podpora je jedním z nejúčinnějších způsobů, jak se můžete zapojit do rozvoje vodní miniZOO. Pomáhá nám pokrýt každodenní péči o zvířata, rozšiřovat expozice, vylepšovat zázemí a pořádat vzdělávací programy pro veřejnost i školy.
           </p>
-          <p>
-            Dary přijímáme na účet vodního miniZOO, takže vždy víte, kam vaše podpora směřuje. Každý příspěvek — ať už jednorázový nebo pravidelný — má konkrétní dopad. Vážíme si vaší důvěry a otevřenosti, s jakou nám pomáháte vytvářet prostor, kde příroda inspiruje.
-          </p>
 
           <p style={{ textAlign: 'center', marginTop: '2rem', padding: '1.5rem', background: 'var(--color-rose-bg)', borderRadius: 4 }}>
             <strong style={{ color: 'var(--color-rose)', fontSize: '1.1rem' }}>
@@ -76,6 +80,12 @@ export default function DaryPage() {
           <hr />
 
           <h2 data-reveal>Dobrovolnická pomoc</h2>
+
+          <figure style={{ margin: '1.5rem 0' }} data-reveal>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={daryImages.sponzor} alt="Sponzoring a dobrovolnictví" style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
+          </figure>
+
           <p>
             Pomáhat může každý — i bez finančního daru. V naší vodní miniZOO vítáme každého, kdo chce věnovat svůj čas, energii a dobrou vůli pro dobrou věc.
           </p>
@@ -85,32 +95,15 @@ export default function DaryPage() {
 
           <h3>Jak můžete pomoci</h3>
           <ul>
-            <li>
-              <strong>Péče o zvířata</strong> — pomoc s krmením, údržbou nádrží, přípravou potravy či běžnou péčí pod dohledem chovatele.
-            </li>
-            <li>
-              <strong>Údržba areálu</strong> — práce na zahradě, úprava cest, drobné opravy, sekání trávy, výsadba rostlin nebo pomoc při zvelebování prostředí.
-            </li>
-            <li>
-              <strong>Vzdělávací programy</strong> — asistence při komentovaných prohlídkách, školních exkurzích, workshopech a akcích pro děti.
-            </li>
-            <li>
-              <strong>Akce a provoz</strong> — pomoc při organizaci besed, dnů otevřených dveří, výstav či doprovodných programů.
-            </li>
-            <li>
-              <strong>Odborná či kreativní pomoc</strong> — grafika, fotografie, propagace, tvorba výukových materiálů nebo překlady textů.
-            </li>
+            <li><strong>Péče o zvířata</strong> — pomoc s krmením, údržbou nádrží, přípravou potravy.</li>
+            <li><strong>Údržba areálu</strong> — práce na zahradě, úprava cest, drobné opravy.</li>
+            <li><strong>Vzdělávací programy</strong> — asistence při prohlídkách a workshopech.</li>
+            <li><strong>Akce a provoz</strong> — pomoc při organizaci akcí a doprovodných programů.</li>
+            <li><strong>Odborná či kreativní pomoc</strong> — grafika, fotografie, propagace, překlady.</li>
           </ul>
 
-          <h3>Proč se zapojit</h3>
           <p>
-            Dobrovolnictví u nás přináší radost z užitečné práce, nové zkušenosti, kontakt se zvířaty i přírodou a možnost být součástí smysluplného projektu.
-          </p>
-          <p>
-            Záleží nám na tom, aby se každý dobrovolník cítil vítán a věděl, že jeho úsilí má skutečný smysl.
-          </p>
-          <p>
-            Pokud se chcete zapojit, napište nám na <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a> nebo nás kontaktujte telefonicky. Rádi se s vámi domluvíme na možnostech spolupráce podle vašich časových možností a schopností.
+            Pokud se chcete zapojit, napište nám na <a href={siteConfig.contact.emailHref}>{siteConfig.contact.email}</a> nebo nás kontaktujte telefonicky. Rádi se s vámi domluvíme na možnostech spolupráce.
           </p>
 
           <p className="center" style={{ marginTop: '2rem' }}>
