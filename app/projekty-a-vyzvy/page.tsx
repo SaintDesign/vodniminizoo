@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { projektyImages } from '@/lib/images';
 
@@ -16,11 +17,11 @@ const projects = [
       'Součástí expozic vodní miniZOO Baška je komplexní, vícestupňová filtrační soustava, která zajišťuje dlouhodobě stabilní kvalitu vody pro chov vodních živočichů a zároveň slouží jako názorná vzdělávací ukázka procesů čištění vody. Celý systém je navržen s důrazem na biologickou rovnováhu, minimalizaci spotřeby vody a šetrné nakládání s vodou.',
   },
   {
-    date: 'Archivní projekt',
-    title: 'Historická filtrace',
+    date: '19. 05. 2025',
+    title: 'Dokončení terária pro krokodýla nilského',
     image: projektyImages.filtraceOld,
     body:
-      'Pohled na vývoj naší filtrační infrastruktury v čase. Pravidelně investujeme do zlepšování kvality vody a welfare zvířat.',
+      'Cílem projektu je kompletní dokončení expozice krokodýla nilského v areálu vodní miniZOO Baška.',
   },
 ];
 
@@ -32,22 +33,28 @@ export default function ProjektyPage() {
           <h1>Projekty a výzvy</h1>
         </header>
 
-        <div style={{ maxWidth: 900, marginInline: 'auto', display: 'grid', gap: '3rem' }}>
-          {projects.map((p) => (
-            <article key={p.title} data-reveal>
-              <figure style={{ margin: 0, marginBottom: '1.5rem', overflow: 'hidden', borderRadius: 4 }}>
+        <div style={{ maxWidth: 1100, marginInline: 'auto', display: 'grid', gap: '4rem' }}>
+          {projects.map((p, i) => (
+            <article key={p.title} className="project-row" data-reveal>
+              <div className="project-row__body">
+                <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--color-rose)', fontSize: '1.75rem', fontWeight: 700, lineHeight: 1.3, marginBottom: '.4rem' }}>
+                  {p.title}
+                </h2>
+                <p style={{ color: 'var(--color-text)', fontSize: '.85rem', marginBottom: '1rem', fontStyle: 'italic' }}>
+                  {p.date}
+                </p>
+                <p style={{ color: 'var(--color-ink)', fontWeight: 600, lineHeight: 1.75 }}>{p.body}</p>
+              </div>
+              <figure className="project-row__media" style={{ margin: 0 }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.image} alt={p.title} style={{ width: '100%', height: 'auto' }} />
+                <img src={p.image} alt={p.title} style={{ width: '100%', height: 'auto', borderRadius: 4 }} />
               </figure>
-              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--color-rose)', fontSize: '1.6rem', fontWeight: 700, marginBottom: '.4rem' }}>
-                {p.title}
-              </h2>
-              <p style={{ color: 'var(--color-text)', fontSize: '.85rem', marginBottom: '1rem', fontStyle: 'italic' }}>
-                {p.date}
-              </p>
-              <p style={{ color: 'var(--color-text)', lineHeight: 1.75 }}>{p.body}</p>
             </article>
           ))}
+        </div>
+
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <Link className="btn-rose" href="/">ZPĚT</Link>
         </div>
       </div>
     </section>
