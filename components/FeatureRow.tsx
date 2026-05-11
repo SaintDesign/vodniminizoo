@@ -16,7 +16,14 @@ export function FeatureRow({ title, body, image, imageAlt, caption, more, revers
   return (
     <div className={`feature${reverse ? ' feature--rev' : ''}`}>
       <figure className="feature__media">
-        <Image src={image} alt={imageAlt} width={760} height={608} sizes="(min-width: 860px) 500px, 90vw" />
+        <Image
+          src={image}
+          alt={imageAlt}
+          width={1100}
+          height={733}
+          sizes="(min-width: 860px) 500px, 90vw"
+          style={{ width: '100%', height: 'auto', display: 'block' }}
+        />
         {caption && <figcaption>{caption}</figcaption>}
       </figure>
       <div className="feature__body" data-reveal>

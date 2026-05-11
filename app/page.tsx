@@ -19,14 +19,11 @@ export default function HomePage() {
             <Image
               src="/assets/images/ocelatus.jpeg"
               alt="Astronotus ocellatus v akváriu"
-              width={1100}
-              height={620}
+              width={1934}
+              height={1288}
               priority
               sizes="(min-width: 1140px) 1100px, 92vw"
             />
-            <div className="home-hero__badge">
-              <Image src="/assets/images/logo.png" alt="vodní miniZOO Baška" width={110} height={110} />
-            </div>
           </div>
         </div>
       </section>
@@ -101,7 +98,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* "Barunka" a její kamarádi — gallery */}
+      {/* "Barunka" a její kamarádi — gallery (masonry, přirozené poměry) */}
       <section className="section section--rose">
         <div className="container">
           <div className="section__head" data-reveal>
@@ -109,27 +106,31 @@ export default function HomePage() {
             <Link className="more" href="/fotogalerie">Fotogalerie</Link>
           </div>
           <div className="gallery-mixed" data-reveal>
-            <figure className="gallery-mixed__tall">
+            <figure>
               <div className="gallery-mixed__media">
-                <Image src="/assets/images/barunka.jpeg" alt="Barunka" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/images/barunka.jpeg" alt="Barunka" loading="lazy" />
               </div>
               <figcaption>Barunka</figcaption>
             </figure>
-            <figure className="gallery-mixed__short">
+            <figure>
               <div className="gallery-mixed__media">
-                <Image src="/assets/images/koznatka.jpeg" alt="Kožnatka floridská" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/images/koznatka.jpeg" alt="Kožnatka floridská" loading="lazy" />
               </div>
               <figcaption>Kožnatka floridská</figcaption>
             </figure>
-            <figure className="gallery-mixed__short">
+            <figure>
               <div className="gallery-mixed__media">
-                <Image src="/assets/images/ocelatus.jpeg" alt="Ocelatus" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/images/ocelatus.jpeg" alt="Ocelatus" loading="lazy" />
               </div>
               <figcaption>Ocelatus</figcaption>
             </figure>
-            <figure className="gallery-mixed__tall">
+            <figure>
               <div className="gallery-mixed__media">
-                <Image src="/assets/images/arapaima.jpeg" alt="Arapaima gigas" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/images/arapaima.jpeg" alt="Arapaima gigas" loading="lazy" />
               </div>
               <figcaption>Arapaima gigas</figcaption>
             </figure>

@@ -246,11 +246,14 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .feature__media {
   position: relative;
-  aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: 4px;
 }
-.feature__media img { width: 100%; height: 100%; object-fit: cover; }
+.feature__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .feature__media figcaption {
   margin-top: .6rem;
   text-align: center;
@@ -305,18 +308,16 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   position: relative;
   max-width: 1100px;
   margin-inline: auto;
-  aspect-ratio: 16 / 9;
   border-radius: 4px;
   overflow: hidden;
 }
-.home-hero__img img { width: 100%; height: 100%; object-fit: cover; }
-.home-hero__badge {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  width: 110px; height: 110px;
+.home-hero__img img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
-.home-hero__badge img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,.4)); }
+/* Badge zrušen — vodoznak monfi.cz je už vypálený přímo v originální fotce */
+.home-hero__badge { display: none; }
 
 /* Intro text block under hero */
 .intro {
@@ -358,59 +359,83 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   max-width: 1100px;
   margin-inline: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-/* Foto-grid — masonry-like layout pro /fotogalerie */
-.foto-grid {
-  display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+.gallery-grid .gallery-grid__media {
+  overflow: hidden;
+  border-radius: 4px;
+}
+.gallery-grid .gallery-grid__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.gallery-grid figcaption {
+  margin-top: .5rem;
+  text-align: center;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--color-text);
+}
+@media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Foto-grid — true masonry (CSS columns), zachovává přirozený poměr stran fotek */
+.foto-grid {
+  column-count: 4;
+  column-gap: 1rem;
   max-width: 1200px;
   margin-inline: auto;
 }
 .foto-grid__item {
-  margin: 0;
+  break-inside: avoid;
+  margin: 0 0 1rem;
   overflow: hidden;
   border-radius: 4px;
   background: var(--color-rose-bg);
+  display: block;
 }
 .foto-grid__item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
   transition: transform .6s ease;
 }
 .foto-grid__item:hover img { transform: scale(1.04); }
-.foto-grid__item--1 { aspect-ratio: 3/4; }
-.foto-grid__item--2 { aspect-ratio: 1/1; }
-.foto-grid__item--3 { aspect-ratio: 4/5; }
-.foto-grid__item--4 { aspect-ratio: 3/4; }
-@media (max-width: 880px) { .foto-grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; } }
+@media (max-width: 880px) { .foto-grid { column-count: 2; column-gap: .75rem; } .foto-grid__item { margin-bottom: .75rem; } }
+@media (max-width: 540px) { .foto-grid { column-count: 1; } }
 
-/* Mixed gallery — tall + 2 short stacked + tall (homepage Barunka) */
+/* Mixed gallery — homepage Barunka, masonry s přirozeným poměrem stran */
 .gallery-mixed {
   max-width: 1100px;
   margin-inline: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1.25rem 1.75rem;
+  column-count: 3;
+  column-gap: 1.5rem;
 }
-.gallery-mixed figure { margin: 0; display: flex; flex-direction: column; gap: .5rem; }
-.gallery-mixed__media { position: relative; overflow: hidden; border-radius: 4px; }
-.gallery-mixed figcaption { text-align: center; font-style: italic; font-size: .85rem; color: var(--color-text); }
-.gallery-mixed__tall { grid-row: span 2; }
-.gallery-mixed__tall .gallery-mixed__media { aspect-ratio: 3 / 4; }
-.gallery-mixed__short .gallery-mixed__media { aspect-ratio: 4 / 3; }
-@media (max-width: 800px) {
-  .gallery-mixed { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-  .gallery-mixed__tall { grid-row: span 1; }
-  .gallery-mixed__tall .gallery-mixed__media { aspect-ratio: 1 / 1; }
-  .gallery-mixed__short .gallery-mixed__media { aspect-ratio: 1 / 1; }
+.gallery-mixed figure {
+  margin: 0 0 1.5rem;
+  break-inside: avoid;
+  display: block;
 }
+.gallery-mixed__media {
+  overflow: hidden;
+  border-radius: 4px;
+  display: block;
+}
+.gallery-mixed__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.gallery-mixed figcaption {
+  margin-top: .5rem;
+  text-align: center;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--color-text);
+}
+@media (max-width: 800px) { .gallery-mixed { column-count: 2; column-gap: 1rem; } }
+@media (max-width: 480px) { .gallery-mixed { column-count: 1; } }
 .gallery-grid figure {
   margin: 0;
 }
