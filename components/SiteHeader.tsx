@@ -25,7 +25,7 @@ export function SiteHeader() {
           <Image src="/assets/images/logo.png" alt="" width={220} height={150} priority />
         </Link>
 
-        <h1 className="site-header__title">{siteConfig.name}</h1>
+        <p className="site-header__title">{siteConfig.name}</p>
         <p className="site-header__subtitle">{siteConfig.subtitle}</p>
 
         <nav className="site-nav" aria-label="Hlavní navigace">

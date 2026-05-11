@@ -10,7 +10,7 @@ export default function HomePage() {
       {/* Hero — Svět vody + rozvrh */}
       <section className="section section--paper home-hero">
         <div className="container" data-reveal>
-          <h2>{siteConfig.hero.title}</h2>
+          <h1>{siteConfig.hero.title}</h1>
           <p className="home-hero__time">{siteConfig.hero.schedule}</p>
           <p className="home-hero__cta-text">{siteConfig.hero.note}</p>
         </div>

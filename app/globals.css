@@ -12,8 +12,8 @@
   --color-rose-bg: #fdf0f5;
   --color-rose-bg-2: #fbe6ef;
   --color-text: #707786;
-  --color-ink: #2b2b2e;
-  --color-title: #2b2b2e;
+  --color-ink: #373F51;
+  --color-title: #373F51;
   --color-line: #e9e3e1;
   --color-page: #ffffff;
   --color-footer: #0d2937;
@@ -68,7 +68,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 
 /* ============ Site header ============ */
 .site-header {
-  padding: 2rem var(--gutter) 1rem;
+  padding: 2.5rem var(--gutter) 1.5rem;
   text-align: center;
   background: var(--color-page);
 }
@@ -76,22 +76,23 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   display: inline-flex;
   margin-inline: auto;
 }
-.site-header__logo img { width: 110px; height: auto; }
+.site-header__logo img { width: 173px; height: auto; }
 .site-header__title {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem);
-  color: #2b2b2e;
-  letter-spacing: -.01em;
-  margin-top: .8rem;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 1.6rem + 2.5vw, 3.4rem);
+  color: #373F51;
+  letter-spacing: -.005em;
+  margin-top: 1.4rem;
   line-height: 1.2;
 }
 .site-header__subtitle {
-  font-family: var(--font-body);
-  font-style: italic;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 400;
   color: var(--color-rose);
-  font-size: 1.1rem;
-  margin-top: .25rem;
+  font-size: 1.5rem;
+  margin-top: .35rem;
 }
 
 /* Nav */
@@ -106,18 +107,19 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0 2.2rem;
+  gap: 0 1.6rem;
 }
 .site-nav__list a {
-  font-family: var(--font-body);
-  font-size: .95rem;
-  font-weight: 400;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
   color: #707786;
   padding: .9rem 0;
   display: inline-flex;
   align-items: center;
   gap: .3rem;
   transition: color .2s ease;
+  white-space: nowrap;
 }
 .site-nav__list a:hover,
 .site-nav__list a[aria-current="page"] { color: var(--color-rose); }
@@ -147,7 +149,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .site-nav__sub a {
   display: block;
   padding: .6rem 1.1rem;
-  font-size: .9rem;
+  font-size: .95rem;
+  font-family: var(--font-display);
   text-align: left;
   white-space: nowrap;
 }
@@ -199,8 +202,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .page-heading h1 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 1.5rem + 2.2vw, 3rem);
   color: var(--color-rose);
   display: inline-block;
   position: relative;
@@ -257,8 +260,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .feature__body h2 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2rem);
   color: var(--color-rose);
   margin-bottom: 1rem;
 }
@@ -286,25 +289,15 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   text-align: center;
   padding: 1rem 0 3rem;
 }
-.home-hero h2 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem);
-  color: var(--color-text);
-  line-height: 1.3;
-}
-.home-hero__time {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem);
-  color: var(--color-text);
-  margin-top: .25rem;
-  font-weight: 400;
-}
+.home-hero h1,
+.home-hero h2,
+.home-hero__time,
 .home-hero__cta-text {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem);
   color: var(--color-text);
-  font-weight: 400;
+  line-height: 1.5;
   margin-top: .25rem;
 }
 .home-hero__img {
@@ -350,8 +343,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 }
 .section__head h2 {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2rem);
   color: var(--color-rose);
 }
 .section__head .more {
