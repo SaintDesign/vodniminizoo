@@ -27,7 +27,7 @@ export default function ONasPage() {
 
             <figure style={{ margin: '2rem 0' }} data-reveal>
               <Image
-                src="/assets/images/stezka.jpeg"
+                src="/assets/images/koznatka.jpeg"
                 alt="Areál vodní miniZOO Baška"
                 width={760}
                 height={420}

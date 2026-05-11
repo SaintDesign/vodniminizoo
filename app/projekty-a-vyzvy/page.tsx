@@ -11,7 +11,7 @@ const projects = [
   {
     date: '21. 01. 2026',
     title: 'Komplexní filtrační soustava — voda v pohybu a v rovnováze',
-    image: '/assets/images/akvarium.jpeg',
+    image: '/assets/images/arapaima.jpeg',
     body:
       'Součástí expozic vodní miniZOO Baška je komplexní, vícestupňová filtrační soustava, která zajišťuje dlouhodobě stabilní kvalitu vody pro chov vodních živočichů a zároveň slouží jako názorná vzdělávací ukázka procesů čištění vody. Celý systém je navržen s důrazem na biologickou rovnováhu, minimalizaci spotřeby vody a šetrné nakládání s vodou.',
   },

@@ -188,7 +188,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .section--ink::before {
   content: "";
   position: absolute; inset: 0;
-  background-image: url('/assets/images/akvarium.jpeg');
+  background-image: url('/assets/images/kontakt-bg.jpeg');
   background-size: cover; background-position: center;
   filter: brightness(.35) saturate(.7);
   z-index: 0;
@@ -361,6 +361,28 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+
+/* Mixed gallery — tall + 2 short stacked + tall (homepage Barunka) */
+.gallery-mixed {
+  max-width: 1100px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.25rem 1.75rem;
+}
+.gallery-mixed figure { margin: 0; display: flex; flex-direction: column; gap: .5rem; }
+.gallery-mixed__media { position: relative; overflow: hidden; border-radius: 4px; }
+.gallery-mixed figcaption { text-align: center; font-style: italic; font-size: .85rem; color: var(--color-text); }
+.gallery-mixed__tall { grid-row: span 2; }
+.gallery-mixed__tall .gallery-mixed__media { aspect-ratio: 3 / 4; }
+.gallery-mixed__short .gallery-mixed__media { aspect-ratio: 4 / 3; }
+@media (max-width: 800px) {
+  .gallery-mixed { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-mixed__tall { grid-row: span 1; }
+  .gallery-mixed__tall .gallery-mixed__media { aspect-ratio: 1 / 1; }
+  .gallery-mixed__short .gallery-mixed__media { aspect-ratio: 1 / 1; }
+}
 .gallery-grid figure {
   margin: 0;
 }
@@ -432,6 +454,71 @@ button { font: inherit; cursor: pointer; border: 0; background: none; color: inh
 .btn-rose:hover { background: var(--color-rose-2); color: #fff; transform: translateY(-1px); }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; align-items: center; }
+
+/* ============ Cenik dvousloupkový ============ */
+.cenik-cols {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+@media (min-width: 760px) {
+  .cenik-cols { grid-template-columns: 1fr 1fr; gap: 4rem; }
+}
+.cenik-col { color: var(--color-text); line-height: 1.7; }
+.cenik-col strong { color: var(--color-ink); display: inline-block; }
+.cenik-col h3 {
+  font-family: var(--font-display);
+  color: var(--color-rose);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 .5rem;
+}
+.cenik-col h4 {
+  font-family: var(--font-display);
+  color: var(--color-rose);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.5rem 0 .5rem;
+}
+.cenik-col p { color: var(--color-text); margin-bottom: .5rem; }
+.cenik-col p + p { margin-top: .5rem; }
+.cenik-col hr { border: 0; height: 1px; background: var(--color-line); margin: 1.5rem 0; }
+.cenik-table { width: 100%; }
+.cenik-table dt, .cenik-table dd { display: inline; }
+.cenik-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: .3rem 0;
+  gap: 1rem;
+}
+.cenik-row strong { color: var(--color-rose); font-weight: 700; }
+.cenik-row .price { color: var(--color-rose); font-weight: 700; font-family: var(--font-display); font-size: 1.05rem; white-space: nowrap; }
+.cenik-col ul { padding-left: 0; list-style: none; }
+.cenik-col li { padding: .2rem 0; color: var(--color-text); }
+.cenik-col li::before { content: "• "; color: var(--color-text); margin-right: .35rem; }
+.cenik-col a { color: var(--color-rose); text-decoration: underline; }
+
+.nove-koupite {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-line);
+}
+.nove-koupite h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.nove-koupite img {
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
 
 /* ============ Contact section ============ */
 .contact {

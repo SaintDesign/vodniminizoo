@@ -20,25 +20,25 @@ export default function ProgramSvetVodyPage() {
         <div className="gallery-grid" data-reveal style={{ marginBottom: '3rem' }}>
           <figure>
             <div className="gallery-grid__media">
-              <Image src="/assets/images/krokodyl.jpeg" alt="Krokodýl" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
+              <Image src="/assets/images/cichlida-papousci.jpeg" alt="Krokodýl" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
             </div>
             <figcaption>Krokodýl nilský</figcaption>
           </figure>
           <figure>
             <div className="gallery-grid__media">
-              <Image src="/assets/images/akvarium.jpeg" alt="Arapaima gigas" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
+              <Image src="/assets/images/arapaima.jpeg" alt="Arapaima gigas" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
             </div>
             <figcaption>Arapaima gigas</figcaption>
           </figure>
           <figure>
             <div className="gallery-grid__media">
-              <Image src="/assets/images/expozice.jpeg" alt="Vodní želva" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
+              <Image src="/assets/images/arapaima.jpeg" alt="Vodní želva" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
             </div>
             <figcaption>Obojživelníci</figcaption>
           </figure>
           <figure>
             <div className="gallery-grid__media">
-              <Image src="/assets/images/stezka.jpeg" alt="Naučná stezka" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
+              <Image src="/assets/images/koznatka.jpeg" alt="Naučná stezka" width={500} height={500} sizes="(min-width: 1100px) 25vw, 45vw" />
             </div>
             <figcaption>Naučná stezka</figcaption>
           </figure>

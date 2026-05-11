@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const photos = [
-  { src: '/assets/images/akvarium.jpeg', alt: 'Hlavní akvárium', caption: 'Hlavní akvárium 41 000 l' },
-  { src: '/assets/images/krokodyl.jpeg', alt: 'Krokodýl nilský', caption: 'Krokodýl nilský' },
-  { src: '/assets/images/ocelatus-1.jpeg', alt: 'Astronotus ocellatus', caption: 'Ocelatus' },
-  { src: '/assets/images/ocelatus-2.webp', alt: 'Cichlida papouščí', caption: 'Cichlida papouščí' },
-  { src: '/assets/images/expozice.jpeg', alt: 'Expozice', caption: 'Vnitřní expozice' },
-  { src: '/assets/images/stezka.jpeg', alt: 'Naučná stezka', caption: 'Naučná stezka' },
+  { src: '/assets/images/arapaima.jpeg', alt: 'Hlavní akvárium', caption: 'Hlavní akvárium 41 000 l' },
+  { src: '/assets/images/cichlida-papousci.jpeg', alt: 'Krokodýl nilský', caption: 'Krokodýl nilský' },
+  { src: '/assets/images/ocelatus.jpeg', alt: 'Astronotus ocellatus', caption: 'Ocelatus' },
+  { src: '/assets/images/ocelatus.jpeg', alt: 'Cichlida papouščí', caption: 'Cichlida papouščí' },
+  { src: '/assets/images/arapaima.jpeg', alt: 'Expozice', caption: 'Vnitřní expozice' },
+  { src: '/assets/images/koznatka.jpeg', alt: 'Naučná stezka', caption: 'Naučná stezka' },
   { src: '/assets/images/deti.jpeg', alt: 'Děti při programu', caption: 'Programy pro děti' },
   { src: '/assets/images/skola.jpeg', alt: 'Návštěva školy', caption: 'Návštěvy škol' },
 ];

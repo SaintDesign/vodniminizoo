@@ -17,7 +17,7 @@ export default function HomePage() {
         <div className="container">
           <div className="home-hero__img" data-reveal>
             <Image
-              src="/assets/images/ocelatus-1.jpeg"
+              src="/assets/images/ocelatus.jpeg"
               alt="Astronotus ocellatus v akváriu"
               width={1100}
               height={620}
@@ -49,12 +49,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* O nás (růžová sekce) */}
+      {/* O nás (růžová sekce) — Cichlida papouščí */}
       <section className="section section--rose">
         <div className="container">
           <FeatureRow
             title="O nás"
-            image="/assets/images/ocelatus-2.webp"
+            image="/assets/images/cichlida-papousci.jpeg"
             imageAlt="Cichlida papouščí"
             caption="Cichlida papouščí"
             body={
@@ -101,37 +101,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* "Barunka" a její kamarádi */}
+      {/* "Barunka" a její kamarádi — gallery */}
       <section className="section section--rose">
         <div className="container">
           <div className="section__head" data-reveal>
             <h2>„Barunka" a její kamarádi</h2>
             <Link className="more" href="/fotogalerie">Fotogalerie</Link>
           </div>
-          <div className="gallery-grid" data-reveal>
-            <figure>
-              <div className="gallery-grid__media">
-                <Image src="/assets/images/krokodyl.jpeg" alt="Barunka" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
+          <div className="gallery-mixed" data-reveal>
+            <figure className="gallery-mixed__tall">
+              <div className="gallery-mixed__media">
+                <Image src="/assets/images/barunka.jpeg" alt="Barunka" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
               </div>
               <figcaption>Barunka</figcaption>
             </figure>
-            <figure>
-              <div className="gallery-grid__media">
-                <Image src="/assets/images/expozice.jpeg" alt="Kožnatka floridská" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
+            <figure className="gallery-mixed__short">
+              <div className="gallery-mixed__media">
+                <Image src="/assets/images/koznatka.jpeg" alt="Kožnatka floridská" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
               </div>
               <figcaption>Kožnatka floridská</figcaption>
             </figure>
-            <figure>
-              <div className="gallery-grid__media">
-                <Image src="/assets/images/akvarium.jpeg" alt="Arapaima gigas" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
-              </div>
-              <figcaption>Arapaima gigas</figcaption>
-            </figure>
-            <figure>
-              <div className="gallery-grid__media">
-                <Image src="/assets/images/ocelatus-1.jpeg" alt="Ocelatus" width={500} height={500} sizes="(min-width: 1100px) 350px, 45vw" />
+            <figure className="gallery-mixed__short">
+              <div className="gallery-mixed__media">
+                <Image src="/assets/images/ocelatus.jpeg" alt="Ocelatus" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
               </div>
               <figcaption>Ocelatus</figcaption>
+            </figure>
+            <figure className="gallery-mixed__tall">
+              <div className="gallery-mixed__media">
+                <Image src="/assets/images/arapaima.jpeg" alt="Arapaima gigas" fill sizes="(min-width: 1100px) 360px, 45vw" style={{ objectFit: 'cover' }} />
+              </div>
+              <figcaption>Arapaima gigas</figcaption>
             </figure>
           </div>
         </div>
